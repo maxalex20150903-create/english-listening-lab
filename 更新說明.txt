@@ -1,0 +1,29 @@
+英聽練習室 v2.1 安裝功能更新包
+
+更新內容：
+1. 頁面下方加入「安裝應用程式」按鈕。
+2. 瀏覽器回報安裝完成後自動隱藏；從桌面應用程式開啟時也隱藏。
+3. iPhone／iPad 顯示「Safari → 分享 → 加入主畫面」指引。
+4. 已保留你提供的 Firebase 設定，並補回目前網站缺少的初始化程式。
+5. 更新紀錄加入 v2.1。原本的 200 個音檔維持相同路徑，不需重傳。
+
+上傳方式：
+1. 解壓縮本檔。
+2. 到 GitHub 儲存庫 english-listening-lab 的最外層（可看到 index.html 的地方）。
+3. 按「新增文件／Add file → 上傳檔案／Upload files」。
+4. 將本包的 index.html、manifest.webmanifest、pwa-install.js、sw.js、.nojekyll，以及 icons 整個資料夾拖入上傳框。
+   請拖入解壓後的內容，不要把 ListenLab_App_Update_v2_1 整個外層資料夾上傳。
+5. 按「提交更改／Commit changes」。
+6. 等 GitHub Pages 部署完成後重新整理網站。
+
+測試網址：
+https://maxalex20150903-create.github.io/english-listening-lab/
+
+在 Chrome／Edge 按頁面下方的「安裝應用程式」，依提示安裝。
+iPhone／iPad 請依按鈕顯示的加入主畫面指引操作。
+安裝偵測依瀏覽器支援；取消安裝不會被標記成安裝完成。
+從桌面圖示開啟時，安裝欄會隱藏。
+
+這是可安裝的網頁應用程式，不是 APK 或 App Store 安裝包。
+帳號登入與雲端保存需要網路；離線時僅能播放之前已快取的音檔。
+已完成程式啟動、題庫保留、安裝事件與按鈕狀態檢查；手機實機安裝需在上傳網站後測試。
