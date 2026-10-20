@@ -2,13 +2,13 @@
   "id": "./",
   "name": "會考英聽練習室",
   "short_name": "英聽練習室",
-  "description": "200 題英文聽力、21 題仿會考與個人學習紀錄",
+  "description": "300 題英文聽力、21 題仿會考與個人學習紀錄",
   "lang": "zh-Hant",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f5f5ee",
-  "theme_color": "#172c35",
+  "background_color": "#f8f8fc",
+  "theme_color": "#6c59cf",
   "icons": [
     {
       "src": "./icons/listen-192.png",
@@ -24,4 +24,3 @@
     }
   ]
 }
-
