@@ -1,7 +1,7 @@
 'use strict';
-const CACHE='listen-lab-install-v4-0';
+const CACHE='listen-lab-install-v4-3';
 const ROOT=new URL('./',self.location.href);
-const CORE=['./','./index.html','./manifest.webmanifest','./pwa-install.js','./icons/listen-192.png','./icons/listen-512.png'];
+const CORE=['./','./index.html','./manifest.webmanifest','./pwa-install.js','./icons/king-192.png','./icons/king-512.png','./icons/king-maskable-512.png','./icons/king-180.png','./icons/king-32.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,ROOT).href))));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('listen-lab-install-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
 function byteRange(value,length){

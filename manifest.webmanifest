@@ -2,25 +2,31 @@
   "id": "./",
   "name": "會考準備王",
   "short_name": "會考準備王",
-  "description": "300 題英文聽力、課綱 2,000 字範圍中文四選一、每回 20 題單字複習與個人學習紀錄",
+  "description": "300 題英文聽力、課綱 2,000 字範圍中文四選一、五種單字難度與個人學習紀錄；一般 20 題，平衡 21 題",
   "lang": "zh-Hant",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f8f8fc",
-  "theme_color": "#6c59cf",
+  "background_color": "#fcf9f2",
+  "theme_color": "#6c43a5",
   "icons": [
     {
-      "src": "./icons/listen-192.png",
+      "src": "./icons/king-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "./icons/listen-512.png",
+      "src": "./icons/king-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/king-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
