@@ -1,5 +1,5 @@
 'use strict';
-const CACHE='listen-lab-install-v4-3';
+const CACHE='listen-lab-install-v4-5';
 const ROOT=new URL('./',self.location.href);
 const CORE=['./','./index.html','./manifest.webmanifest','./pwa-install.js','./icons/king-192.png','./icons/king-512.png','./icons/king-maskable-512.png','./icons/king-180.png','./icons/king-32.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,ROOT).href))));});
@@ -24,7 +24,7 @@ async function audioResponse(request){
 self.addEventListener('fetch',event=>{
  const request=event.request,url=new URL(request.url);
  if(request.method!=='GET'||url.origin!==ROOT.origin||!url.pathname.startsWith(ROOT.pathname))return;
- if(['audio-v2/','audio-v3/'].some(path=>url.pathname.startsWith(new URL(path,ROOT).pathname))){event.respondWith(audioResponse(request));return;}
+ if(['audio-v2/','audio-v3/','audio-v4/'].some(path=>url.pathname.startsWith(new URL(path,ROOT).pathname))){event.respondWith(audioResponse(request));return;}
  const paths=CORE.map(path=>new URL(path,ROOT).pathname);
  if(request.mode==='navigate'){event.respondWith(fetch(request).then(async response=>{if(response.ok){try{const cache=await caches.open(CACHE);await cache.put(new URL('./index.html',ROOT).href,response.clone())}catch{}}return response}).catch(async()=>{const cached=await caches.match(new URL('./index.html',ROOT).href);return cached||new Response('目前離線，請連上網路後再開啟一次。',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}})}));return;}
  if(!paths.includes(url.pathname))return;
