@@ -1,5 +1,5 @@
 'use strict';
-const CACHE='listen-lab-install-v4-9-1';
+const CACHE='listen-lab-install-v4-9-2';
 const ROOT=new URL('./',self.location.href);
 const CORE=['./','./index.html','./manifest.webmanifest','./pwa-install.js','./icons/king-192.png','./icons/king-512.png','./icons/king-maskable-512.png','./icons/king-180.png','./icons/king-32.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(path=>new URL(path,ROOT).href))));});
