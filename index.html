@@ -267,6 +267,99 @@ body.launch-open{overflow:hidden}
 @media(max-width:345px){#appSurface .lobbyBrand{gap:7px}.lobbyHeroCopy{max-width:73%}.lobbyEyebrow{letter-spacing:0}.appNav .lobbyNavActions .textbtn{padding:6px 4px}.lobbyModeDesc{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.lobbyMode{transition:none}.lobbyMode:hover,.lobbyMode:active{transform:none}}
 </style>
+<style id="learning-record-style">
+.records{--record-ink:#24183d;--record-muted:#655974;--record-line:#e8e0f0;--record-accent:#653e9e;color:var(--record-ink)}
+.recordHero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(19px,3.2vw,34px) clamp(16px,3.6vw,39px);min-height:169px;border-radius:22px;color:#fff;background:radial-gradient(ellipse at 90% 0%,#8155ae70,transparent 59%),linear-gradient(116deg,#26183f 0%,#42255e 62%,#603b81 100%);box-shadow:0 11px 28px #39245b26}
+.recordHero::before{content:"";pointer-events:none;position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 80% 110%,#dd97b729,transparent 62%),repeating-radial-gradient(ellipse at 94% 84%,transparent 0 19px,#e8c1ff2c 20px 21px,transparent 22px 36px);mask-image:linear-gradient(90deg,transparent 41%,#000);opacity:.8}
+.recordHeroCopy{min-width:0}.recordEyebrow{display:flex;align-items:center;gap:8px;margin:0;color:#eadbf7;font-size:11px;font-weight:750;letter-spacing:.13em}
+.recordEyebrow span{width:7px;height:7px;background:#f1b68c;border-radius:50%;box-shadow:0 0 0 3px #f1b68c29;flex:none}
+.recordHero h2{font-size:clamp(33px,5.5vw,53px);font-weight:850;color:#fff;line-height:1.15;letter-spacing:-.04em;margin:5px 0 6px}
+.recordHero h2:focus,.recordHistory h3:focus,.recordDisclosureBody:focus{outline:none}
+.recordProfile{color:#e7d9f5;font-size:13px;line-height:1.4;margin:0;overflow-wrap:anywhere}
+.recordHeroSide{display:flex;gap:13px;align-items:flex-end;flex:none}
+.recordHeroStat{padding:9px 12px;min-width:103px;border:1px solid #ecd8ff54;border-radius:14px;background:#f9ebff19;color:#fbeeff;font-size:11px;font-weight:720;line-height:1.3}
+.recordHeroStat div{display:flex;align-items:baseline;gap:5px;margin-top:1px}
+.recordHeroStat strong{font-size:clamp(27px,4vw,40px);color:white;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.recordHomeButton{min-height:37px;border-radius:9px;padding:7px 11px;background:#fbf6ff;color:#56367d;font-size:12px;font-weight:800;white-space:nowrap}
+.recordHomeButton span{margin-left:3px}.recordHomeButton:hover{background:#eaddf7}
+.appNav .learningNav[aria-current="page"]{color:#5934a0;background:#ede7fc;border-radius:9px}
+
+.recordListening{--record-tint:#f6efff;--record-chip:#eee3fa;--record-color:#5a3587;--record-edge:#e8dcf2}
+.recordReading{--record-tint:#eff9f5;--record-chip:#e1f3ec;--record-color:#246257;--record-edge:#d9ebe3}
+.recordVocabulary{--record-tint:#fff8ec;--record-chip:#f8ebd9;--record-color:#794b27;--record-edge:#eee2d1}
+.recordOverview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:15px 0 19px}
+.recordSummary{min-width:0;text-align:left;padding:12px 14px 11px;display:grid;gap:4px;background:linear-gradient(145deg,#fff 22%,var(--record-tint));border:1px solid var(--record-edge);border-radius:15px;color:var(--record-ink);box-shadow:0 4px 12px #2512410c;transition:box-shadow .16s,border-color .16s}
+.recordSummary[aria-pressed="true"],.recordSummary:hover{border-color:var(--record-color);box-shadow:0 3px 12px #25124119}
+.recordOverviewTop{display:flex;align-items:center;gap:8px;color:var(--record-color);font-size:14px;font-weight:800;line-height:1.25}
+.recordCategoryIcon{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--record-chip);color:var(--record-color);flex:none}
+.recordCategoryIcon svg,.recordDisclosureIcon svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.recordTileArrow{margin-left:auto;font-size:13px;color:var(--record-color)}
+.recordOverviewScore{display:flex;align-items:baseline;gap:6px;line-height:1.12}
+.recordOverviewScore strong{font-size:clamp(22px,3vw,34px);font-weight:850;color:var(--record-ink);font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.recordOverviewScore>span,.recordOverviewFoot{font-size:11px;color:var(--record-muted)}
+.recordOverviewFoot b{color:var(--record-ink);font-variant-numeric:tabular-nums}
+
+.recordWorkspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(242px,30%);align-items:start;gap:13px}
+.records .recordHistory,.records .recordDisclosure{border:1px solid var(--record-line);border-radius:15px;box-shadow:0 4px 12px #24183d0b;min-width:0}
+.records .recordHistory{padding:clamp(12px,2vw,20px);scroll-margin-top:12px}
+.recordHistoryHead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:0 0 11px}
+.recordHistoryHead h3{font-size:clamp(18px,2.5vw,22px);margin:0;line-height:1.3;font-weight:850}
+.recordHistoryHead p{font-size:12px;color:var(--record-muted);margin:4px 0 0}
+.recordCount{background:#eee7f7;color:#5b3c83;padding:3px 9px;border-radius:30px;font-size:11px;font-weight:750;white-space:nowrap}
+.recordFilters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;padding:4px;border-radius:10px;border:1px solid #eae2f2;background:#f4eff8;margin-bottom:10px}
+.recordFilters button{min-width:0;min-height:36px;border-radius:7px;background:transparent;color:#5c4f72;font-size:12px;font-weight:750;padding:4px}
+.recordFilters button[aria-pressed="true"]{background:#fff;color:#623c95;box-shadow:0 2px 6px #42246925}
+.recordFilters button:hover{color:#4c247b}
+.recordHistoryList{display:grid;gap:7px}
+.recordRow{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:clamp(7px,1.5vw,14px);border:1px solid #ece5f1;border-radius:11px;padding:9px 10px;background:#fff}
+.recordRowCopy{min-width:0}
+.recordRowTop{display:flex;align-items:center;flex-wrap:wrap;gap:4px 7px;line-height:1.3}
+.recordKind{display:inline-flex;flex:none;border-radius:5px;padding:2px 6px;font-size:10px;font-weight:760;color:var(--record-color);background:var(--record-chip)}
+.recordRowTitle{font-weight:780;overflow-wrap:anywhere;font-size:13px}
+.recordRowMeta{display:flex;flex-wrap:wrap;gap:1px 7px;font-size:11px;color:var(--record-muted);margin:4px 0 0;line-height:1.5;font-variant-numeric:tabular-nums}
+.recordRowMeta time{white-space:nowrap}
+.recordRowScore{display:flex;align-items:baseline;justify-content:center;gap:3px;min-width:48px;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:10px;color:var(--record-muted)}
+.recordRowScore strong{font-size:clamp(18px,2.2vw,25px);font-weight:850;color:var(--record-ink);line-height:1.2;letter-spacing:-.025em}
+.records .recordReview{min-height:36px;padding:6px 9px;border-radius:8px;color:#573581;background:#f0eaf8;font-size:11px;font-weight:750;white-space:nowrap}
+.records .recordReview:hover{color:#3d225f;background:#e8daf2}
+.recordMore{display:block;width:100%;margin-top:10px;padding:8px}
+.recordEmpty{text-align:center;padding:22px clamp(11px,2.5vw,25px);border:1px dashed #ddd1ec;border-radius:12px;background:#fbf8fe}
+.recordEmptyMark{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;margin:0 auto 7px;background:#eee5f6;color:#633f97;font-weight:800;font-size:15px}
+.recordEmpty h4{margin:3px 0 4px;font-size:15px;color:#2c1d47}.recordEmpty p{margin:0;color:var(--record-muted);font-size:12px;line-height:1.45}
+.recordEmpty .btn{margin-top:10px;font-size:11px;padding:7px 12px;min-height:32px}
+
+.recordSidebar{display:grid;gap:9px;min-width:0}
+.records .recordDisclosure{padding:0;background:#fffd}
+.recordDisclosure summary{display:flex;align-items:center;gap:9px;list-style:none;cursor:pointer;padding:11px;min-width:0;border-radius:15px}
+.recordDisclosure summary::-webkit-details-marker{display:none}
+.recordDisclosure summary:hover{background:#faf6fc}
+.recordDisclosureIcon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#efe8f8;color:#69449b}
+.recordSummaryText{display:grid;min-width:0;gap:2px;line-height:1.3}
+.recordSummaryText strong{font-size:13px;color:var(--record-ink)}.recordSummaryText small{font-size:11px;color:var(--record-muted)}
+.recordChevron{margin:0 4px 0 auto;width:8px;height:8px;border-right:1.75px solid #694c88;border-bottom:1.75px solid #694c88;transform:rotate(45deg);transition:transform .16s;flex:none}
+.recordDisclosure[open] .recordChevron{transform:rotate(225deg)}
+.recordDisclosureBody{border-top:1px solid var(--record-line);padding:8px 11px 11px}
+.recordSmall{font-size:11px;line-height:1.55;color:var(--record-muted);margin:0 0 8px}.recordSmall:empty{display:none}.recordSmall:last-child{margin-bottom:0}
+.recordToolButtons{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+.recordToolButtons .btn,#googleLinkBtn.recordReview{font-size:11px;padding:6px 8px;min-height:34px;border-radius:8px}
+.records #backupStatus{margin-top:8px}
+.records .googleAccountPanel{background:#f8f3fb;border:1px solid #e8dff1;border-radius:9px;padding:8px;margin:0 0 9px;gap:6px}
+.records .googleAccountPanel h4{font-size:12px;color:var(--record-ink);margin:0 0 3px}.records .googleAccountPanel p{color:var(--record-muted);overflow-wrap:anywhere;font-size:11px;line-height:1.5}.records .googleAccountPanel [data-kind="error"]{color:#8c3e54}
+.recordDetailsStats{margin:0 0 8px;font-size:11px}.recordDetailsStats>div{display:flex;align-items:baseline;justify-content:space-between;gap:5px;padding:5px 0;border-bottom:1px solid #eee8f3;color:var(--record-muted)}
+.recordDetailsStats dd{font-weight:760;margin:0;color:var(--record-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.recordListeningTypes{display:grid;gap:6px}.recordTypeRow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 6px;font-size:11px;font-weight:700;color:#4f4265}.recordTypeRow>span:last-of-type{font-weight:500;color:var(--record-muted)}
+.recordTypeRow progress{appearance:none;width:100%;height:5px;grid-column:1/-1;overflow:hidden;border:0;border-radius:10px;background:#eee5f5;accent-color:#8759ad}.recordTypeRow progress::-webkit-progress-bar{background:#eee5f5}.recordTypeRow progress::-webkit-progress-value{background:#8759ad;border-radius:10px}.recordTypeRow progress::-moz-progress-bar{background:#8759ad;border-radius:10px}
+.recordWrongList .wrongEntry:first-child{margin-top:0}.recordWrongList .wrongEntry{margin:7px 0;border-radius:9px;padding:8px;min-width:0}.recordWrongList summary{font-size:11px;padding:4px;color:#5b397f;line-height:1.4}.recordWrongList .transcript{font-size:12px;line-height:1.5;overflow-wrap:anywhere;white-space:pre-wrap}.recordWrongList .explanation,.recordWrongList .answerline{font-size:11px;overflow-wrap:anywhere}.recordWrongList audio{width:100%;min-width:0}.recordWrongList .pictureOptions{grid-template-columns:1fr}.recordWrongList .pictureCanvas{max-width:100%}
+.recordWrongMore{display:block;margin-top:6px;min-height:33px;padding:6px 8px;font-size:11px}
+
+.recordHomeButton:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.records :is(.recordSummary,.recordFilters button,.recordReview,.recordDisclosure summary,.recordMore,.recordWrongMore):focus-visible{outline:2px solid #7546ac;outline-offset:2px}
+.recordReadResultActions{display:flex;flex-wrap:wrap;gap:6px}
+@media(max-width:760px){.recordWorkspace{grid-template-columns:minmax(0,1fr);gap:10px}.recordHero{min-height:auto}.recordHeroSide{flex-direction:column;align-items:stretch;gap:7px}.recordHeroStat{min-width:0;padding:6px 9px}.recordHomeButton{min-height:33px;padding:5px 8px;font-size:11px}.recordOverview{gap:6px;margin:10px 0 12px}.recordSummary{padding:8px;gap:4px;border-radius:11px}.recordOverviewTop{font-size:12px;gap:5px}.recordCategoryIcon{width:23px;height:23px;border-radius:6px}.recordCategoryIcon svg{width:15px;height:15px}.recordOverviewScore>span,.recordOverviewFoot{font-size:10px}.recordOverviewScore{gap:4px}}
+@media(max-width:420px){.recordHero{padding:15px;gap:8px;border-radius:15px}.recordEyebrow{font-size:9px;letter-spacing:.04em;gap:5px}.recordEyebrow span{width:5px;height:5px}.recordProfile{font-size:11px}.recordOverviewTop{font-size:11px;gap:4px}.recordTileArrow{display:none}.recordOverviewScore{flex-wrap:wrap;gap:1px 4px}.recordOverviewScore>span{font-size:9px}.recordRow{grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:8px}.recordRowCopy{grid-row:span 2;align-self:center}.recordRowScore{justify-self:end;line-height:1}.records .recordReview{justify-self:end;min-height:31px;padding:4px 7px}.recordRowMeta{gap:1px 5px}.recordHistoryHead p{font-size:11px}.recordSummary{padding:7px 6px}}
+@media(max-width:350px){.recordOverviewTop{flex-wrap:wrap;gap:3px 4px}.recordOverviewScore strong{font-size:20px}.recordOverviewScore>span{width:100%}}
+@media(prefers-reduced-motion:reduce){.recordSummary,.recordChevron{transition:none}}
+</style>
 </head><body class="launch-open"><section id="launchScreen" class="launchScreen" aria-labelledby="launchName" aria-describedby="launchStatus" tabindex="-1">
   <div class="launchGlow" aria-hidden="true"></div>
   <svg class="launchRibbons" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -294,9 +387,9 @@ body.launch-open{overflow:hidden}
   </div>
 </section>
 <div id="appSurface"><header><button id="brandHome" type="button" class="logo lobbyBrand" aria-label="會考準備王，回主大廳"><img class="brandIcon" src="./icons/king-192.png" width="192" height="192" alt=""><span class="lobbyBrandCopy">會考準備王<small>CAP EXAM PREP</small></span></button><span class="small">聽力 · 閱讀 · 單字 · 歷屆試題</span></header><main>
-<nav id="appNav" class="appNav" aria-label="學習導覽"><span id="accountLabel">訪客</span><div class="lobbyNavActions"><button type="button" class="textbtn lobbyHomeNav" id="lobbyHomeNav" aria-current="page">主大廳</button><button type="button" class="textbtn" id="learningBtn">學習資料</button><button type="button" class="textbtn lobbyAuthLink" id="accountBtn">登入／註冊</button><button class="navLogout hidden" id="navLogoutBtn" type="button">登出</button></div></nav>
+<nav id="appNav" class="appNav" aria-label="學習導覽"><span id="accountLabel">訪客</span><div class="lobbyNavActions"><button type="button" class="textbtn lobbyHomeNav" id="lobbyHomeNav" aria-current="page">主大廳</button><button type="button" class="textbtn learningNav" id="learningBtn">學習紀錄</button><button type="button" class="textbtn lobbyAuthLink" id="accountBtn">登入／註冊</button><button class="navLogout hidden" id="navLogoutBtn" type="button">登出</button></div></nav>
 <div class="lobbyMetaBar"><p id="syncStatus" class="syncStatus" role="status">訪客練習紀錄保存在這個瀏覽器。</p>
-<details id="updateLog" class="panel updateLog"><summary>更新紀錄 <span class="version">v4.9.0</span></summary><p class="latestUpdate">2026/11/14 · 新增學習大廳，四種練習入口一目了然。</p><div class="updateHistory" tabindex="0" aria-label="歷次更新內容，由舊到新"><article class="updateEntry"><h3>v1.0 · 初版上線<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>建立 100 題英文聽力測驗與四種難度。</li><li>加入逐題播放、交卷評分、錯題解析與進度保存。</li></ul></article><article class="updateEntry"><h3>v1.1 · 會考題型與語音改版<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>重寫 100 題，加入圖片辨識、基本問答、完整對話與公共廣播。</li><li>換成 Google 翻譯式合成語音，加入對話停頓與開卷前試聽。</li><li>新增仿會考 21 題、25 分鐘倒數與每題兩次播放。</li></ul></article><article class="updateEntry"><h3>v1.2 · GitHub 版本與加號評級<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>提供可直接開啟的 HTML 及 GitHub Pages 上傳包。</li><li>評級加入 A+、B+、C+，同步顯示於成績單。</li></ul></article><article class="updateEntry"><h3>v1.3 · 會考形式評級<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>評級調整為 A++、A+、A、B++、B+、B、C。</li><li>標明採自訂模擬分數門檻，並說明與正式會考計分的差異。</li></ul></article><article class="updateEntry"><h3>v1.4 · 新增更新紀錄<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>頁面上方新增可展開的更新欄，查看從初版到現在的修改。</li><li>顯示目前版本、更新日期與最新修改摘要。</li></ul></article><article class="updateEntry"><h3>v2.0 · 200 題與學習資料<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>題庫擴充為 200 題，核對題幹、答案與圖片；改用第一位／第二位說話者提問。</li><li>新增隨機 100 題、完整 200 題，仿會考維持 21 題，優先抽較少看過的題目。</li><li>新增訪客入口、歷次成績、題型分析、錯題整理與資料備份。</li><li>加入 Email＋密碼註冊、登入及雲端同步介面；須連接帳號服務後啟用。</li></ul></article><article class="updateEntry"><h3>v2.1 · 桌面應用程式安裝<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>頁面下方新增安裝應用程式按鈕，可加入手機及電腦桌面。</li><li>確認安裝完成後隱藏安裝區塊；從桌面圖示開啟時也會隱藏。</li><li>提供 iPhone／iPad 加入主畫面的操作指引，保留用過的音檔供離線播放。</li><li>修復帳號設定貼上後缺少的學習資料初始化程式。</li></ul></article><article class="updateEntry"><h3>v2.2 · 新介面與題目複核<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>採用奶油白與靛紫色介面，重新設計入口、練習卡片及播放區。</li><li>逐題複核 200 題：加強干擾選項，補完整書條件，釐清預約、借用期限及等待時間的回應。</li><li>統一圖片選項 A／B／C 標示；保留原題號、正答位置及音檔，維持既有學習紀錄。</li></ul></article><article class="updateEntry"><h3>v3.0 · 300 題與帳號流程改版<time datetime="2026-10-20">2026/10/20</time></h3><ul><li>登入與註冊分開顯示，註冊增加確認密碼；可切換顯示密碼，登入可重設密碼。</li><li>登入後在導覽列及學習資料提供登出按鈕。</li><li>題庫新增 15 題圖片、35 題問答、50 題言談，共 300 題，附新增 100 題音檔。</li><li>逐題再檢查文字稿、圖片、選項、正答及解析；保留舊 200 題紀錄及未完成進度。</li></ul></article><article class="updateEntry"><h3>v4.0 · 會考準備王與單字測驗<time datetime="2026-10-26">2026/10/26</time></h3><ul><li>正式名稱改為「會考準備王」，首頁可切換聽力測驗與單字測驗。</li><li>單字逐項依課綱附錄五表一、表二整理，英文題幹搭配四個中文意思；同字多義合併。</li><li>每回 20 題，優先未做過的字，穿插錯題與到期複習；選項順序與進度會保存。</li><li>新增單字成績、逐題複習及學習統計；使用原帳號，舊英聽紀錄與進度沿用。</li><li>備份可同時匯出兩種模式，仍支援匯入舊版英聽備份。</li></ul></article><article class="updateEntry"><h3>v4.1 · 新商標與動態載入畫面<time datetime="2026-11-01">2026/11/01</time></h3><ul><li>採用書本搭配金色皇冠的新商標，統一首頁、帳號介面及安裝圖示。</li><li>新增奶油白與紫色紙頁曲線的載入畫面，依實際初始化狀況結束；支援減少動畫的系統設定。</li><li>保留 v4.0 題庫、帳戶與兩種模式的學習資料設定。</li></ul><button id="brandPreviewBtn" type="button" class="btn secondary brandPreviewButton">預覽載入畫面</button></article><article class="updateEntry"><h3>v4.2 · 單字五種難度<time datetime="2026-11-01">2026/11/01</time></h3><ul><li>新增簡單、中等、困難、隨機、平衡五種選擇，難度設定依帳號保存在這台裝置。</li><li>單一難度與隨機模式每回 20 題；平衡模式每回 21 題，簡單、中等、困難各 7 題。</li><li>續答保留原題目與難度，成績、複習、下載及學習紀錄依實際題數計算；仍可讀取舊 20 題紀錄。</li></ul></article><article class="updateEntry"><h3>v4.3 · 點擊畫面進入<time datetime="2026-11-01">2026/11/01</time></h3><ul><li>開啟時先顯示載入動畫；完成後顯示「點擊畫面任意處即可進入」，點一下才進主畫面。</li><li>整個開場畫面都可點擊，不需要尋找底部按鈕；也可按 Enter 或空白鍵進入。</li><li>保留五種單字難度、聽力測驗、原帳號、學習進度與歷次更新紀錄。</li></ul></article><article class="updateEntry"><h3>v4.4 · 會考英聽校對版<time datetime="2026-11-07">2026/11/07</time></h3><ul><li>逐題檢查 300 題，重寫 183 題並重製對應音檔。圖片增加人物與生活物件，問答和廣播縮短，避免把英聽變成計算題。</li><li>預設仿會考 21 題；「會考標準」以基礎和情境理解為主，另有基礎鞏固與進階挑戰。</li><li>新增 102 試辦至 115 年官方題本入口；舊進度和成績依原題回看。</li></ul></article><article class="updateEntry"><h3>v4.5 · Google 帳號<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>登入和註冊都可使用 Google；新使用者第一次使用會建立帳號，以後選同一個 Google 帳號即可登入。</li><li>已用 Email 註冊的人可先登入，再到「學習資料」連結 Google，繼續使用原本的紀錄。</li><li>沿用原本的 Email 帳密、訪客模式及英聽、單字題庫。</li></ul></article><article class="updateEntry"><h3>v4.6 · 圖片題重繪<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>45 題辨識句意的 135 張選項改用新版向量插畫，讓手上的物品、人物姿勢、位置和數量更清楚。</li><li>時鐘、路線圖、數字與課表提高對比；小螢幕每張圖各占一列。</li><li>題目、答案、音檔和原有學習紀錄沿用。</li></ul></article><article class="updateEntry"><h3>v4.6.1 · 修正手握物品<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>修正手和吉他、書、球、相機、水瓶、紙箱、雨傘、書包提把與腳踏車把手的接觸位置。</li><li>保留原有題目、答案、音檔和其他插畫。</li></ul></article><article class="updateEntry"><h3>v4.6.2 · 吉他握姿微調<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>將吉他放平一些，手扶琴身外緣和琴頸，手肘與手腕的彎曲幅度變小。</li><li>其餘圖片恢復 v4.6。題目、答案和音檔沿用。</li></ul></article><article class="updateEntry"><h3>v4.7.0 · 歷屆專區與彈性練習<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>歷屆專區收錄 103～115 年官方英文題本與參考答案，可在線上作答；聽力逐題播放官方音檔，109 年僅提供閱讀。</li><li>21 題英聽可調速、選限時或不限時，也可一鍵套用仿會考設定。圖片題換回早期簡潔插圖。</li><li>單字加入進階語境挑戰，依句意選出畫線單字的中文意思。</li></ul></article><article class="updateEntry"><h3>v4.7.1 · 進階語境交卷後對答案<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>開始或繼續作答時，只標出選項、不顯示對錯。確認交卷後才顯示分數、正解與解析。</li><li>「複習上回答案」另有入口；複習後可接續這一回的作答。</li></ul></article><article class="updateEntry"><h3>v4.8.0 · 原創閱讀<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>新增 20 道單題與 10 篇題組，共 60 道原創閱讀題。</li><li>每回可選 10 或 20 題，文章和題組一起呈現；確認交卷後才公布成績、正解與解析。</li><li>支援接續未完成的閱讀測驗，在「學習資料」可複習已交卷的閱讀紀錄。</li></ul></article><article class="updateEntry"><h3>v4.8.1 · 歷屆閱讀題組<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>修正 115 年英文閱讀第 24～26 題，作答時會同時顯示宣傳手冊、地圖和題目。</li><li>103～115 年的跨頁閱讀題組，跳到後頁題目時一併顯示前頁資料，可快速切換查看位置。</li></ul></article><article class="updateEntry"><h3>v4.9.0 · 學習大廳<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>開場後直接進入學習大廳，可選原創聽力、原創閱讀、單字測驗或歷屆專區。</li><li>有未交卷的原創聽力、閱讀或單字時，大廳會顯示作答進度並可直接接續。</li><li>登入、學習資料與返回主大廳都在上方導覽列。手機版採用兩欄大卡片。</li></ul></article></div></details>
+<details id="updateLog" class="panel updateLog"><summary>更新紀錄 <span class="version">v4.9.1</span></summary><p class="latestUpdate">2026/11/14 · 學習紀錄有新介面，可依聽力、閱讀和單字篩選成績。</p><div class="updateHistory" tabindex="0" aria-label="歷次更新內容，由舊到新"><article class="updateEntry"><h3>v1.0 · 初版上線<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>建立 100 題英文聽力測驗與四種難度。</li><li>加入逐題播放、交卷評分、錯題解析與進度保存。</li></ul></article><article class="updateEntry"><h3>v1.1 · 會考題型與語音改版<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>重寫 100 題，加入圖片辨識、基本問答、完整對話與公共廣播。</li><li>換成 Google 翻譯式合成語音，加入對話停頓與開卷前試聽。</li><li>新增仿會考 21 題、25 分鐘倒數與每題兩次播放。</li></ul></article><article class="updateEntry"><h3>v1.2 · GitHub 版本與加號評級<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>提供可直接開啟的 HTML 及 GitHub Pages 上傳包。</li><li>評級加入 A+、B+、C+，同步顯示於成績單。</li></ul></article><article class="updateEntry"><h3>v1.3 · 會考形式評級<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>評級調整為 A++、A+、A、B++、B+、B、C。</li><li>標明採自訂模擬分數門檻，並說明與正式會考計分的差異。</li></ul></article><article class="updateEntry"><h3>v1.4 · 新增更新紀錄<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>頁面上方新增可展開的更新欄，查看從初版到現在的修改。</li><li>顯示目前版本、更新日期與最新修改摘要。</li></ul></article><article class="updateEntry"><h3>v2.0 · 200 題與學習資料<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>題庫擴充為 200 題，核對題幹、答案與圖片；改用第一位／第二位說話者提問。</li><li>新增隨機 100 題、完整 200 題，仿會考維持 21 題，優先抽較少看過的題目。</li><li>新增訪客入口、歷次成績、題型分析、錯題整理與資料備份。</li><li>加入 Email＋密碼註冊、登入及雲端同步介面；須連接帳號服務後啟用。</li></ul></article><article class="updateEntry"><h3>v2.1 · 桌面應用程式安裝<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>頁面下方新增安裝應用程式按鈕，可加入手機及電腦桌面。</li><li>確認安裝完成後隱藏安裝區塊；從桌面圖示開啟時也會隱藏。</li><li>提供 iPhone／iPad 加入主畫面的操作指引，保留用過的音檔供離線播放。</li><li>修復帳號設定貼上後缺少的學習資料初始化程式。</li></ul></article><article class="updateEntry"><h3>v2.2 · 新介面與題目複核<time datetime="2026-10-18">2026/10/18</time></h3><ul><li>採用奶油白與靛紫色介面，重新設計入口、練習卡片及播放區。</li><li>逐題複核 200 題：加強干擾選項，補完整書條件，釐清預約、借用期限及等待時間的回應。</li><li>統一圖片選項 A／B／C 標示；保留原題號、正答位置及音檔，維持既有學習紀錄。</li></ul></article><article class="updateEntry"><h3>v3.0 · 300 題與帳號流程改版<time datetime="2026-10-20">2026/10/20</time></h3><ul><li>登入與註冊分開顯示，註冊增加確認密碼；可切換顯示密碼，登入可重設密碼。</li><li>登入後在導覽列及學習資料提供登出按鈕。</li><li>題庫新增 15 題圖片、35 題問答、50 題言談，共 300 題，附新增 100 題音檔。</li><li>逐題再檢查文字稿、圖片、選項、正答及解析；保留舊 200 題紀錄及未完成進度。</li></ul></article><article class="updateEntry"><h3>v4.0 · 會考準備王與單字測驗<time datetime="2026-10-26">2026/10/26</time></h3><ul><li>正式名稱改為「會考準備王」，首頁可切換聽力測驗與單字測驗。</li><li>單字逐項依課綱附錄五表一、表二整理，英文題幹搭配四個中文意思；同字多義合併。</li><li>每回 20 題，優先未做過的字，穿插錯題與到期複習；選項順序與進度會保存。</li><li>新增單字成績、逐題複習及學習統計；使用原帳號，舊英聽紀錄與進度沿用。</li><li>備份可同時匯出兩種模式，仍支援匯入舊版英聽備份。</li></ul></article><article class="updateEntry"><h3>v4.1 · 新商標與動態載入畫面<time datetime="2026-11-01">2026/11/01</time></h3><ul><li>採用書本搭配金色皇冠的新商標，統一首頁、帳號介面及安裝圖示。</li><li>新增奶油白與紫色紙頁曲線的載入畫面，依實際初始化狀況結束；支援減少動畫的系統設定。</li><li>保留 v4.0 題庫、帳戶與兩種模式的學習資料設定。</li></ul><button id="brandPreviewBtn" type="button" class="btn secondary brandPreviewButton">預覽載入畫面</button></article><article class="updateEntry"><h3>v4.2 · 單字五種難度<time datetime="2026-11-01">2026/11/01</time></h3><ul><li>新增簡單、中等、困難、隨機、平衡五種選擇，難度設定依帳號保存在這台裝置。</li><li>單一難度與隨機模式每回 20 題；平衡模式每回 21 題，簡單、中等、困難各 7 題。</li><li>續答保留原題目與難度，成績、複習、下載及學習紀錄依實際題數計算；仍可讀取舊 20 題紀錄。</li></ul></article><article class="updateEntry"><h3>v4.3 · 點擊畫面進入<time datetime="2026-11-01">2026/11/01</time></h3><ul><li>開啟時先顯示載入動畫；完成後顯示「點擊畫面任意處即可進入」，點一下才進主畫面。</li><li>整個開場畫面都可點擊，不需要尋找底部按鈕；也可按 Enter 或空白鍵進入。</li><li>保留五種單字難度、聽力測驗、原帳號、學習進度與歷次更新紀錄。</li></ul></article><article class="updateEntry"><h3>v4.4 · 會考英聽校對版<time datetime="2026-11-07">2026/11/07</time></h3><ul><li>逐題檢查 300 題，重寫 183 題並重製對應音檔。圖片增加人物與生活物件，問答和廣播縮短，避免把英聽變成計算題。</li><li>預設仿會考 21 題；「會考標準」以基礎和情境理解為主，另有基礎鞏固與進階挑戰。</li><li>新增 102 試辦至 115 年官方題本入口；舊進度和成績依原題回看。</li></ul></article><article class="updateEntry"><h3>v4.5 · Google 帳號<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>登入和註冊都可使用 Google；新使用者第一次使用會建立帳號，以後選同一個 Google 帳號即可登入。</li><li>已用 Email 註冊的人可先登入，再到「學習資料」連結 Google，繼續使用原本的紀錄。</li><li>沿用原本的 Email 帳密、訪客模式及英聽、單字題庫。</li></ul></article><article class="updateEntry"><h3>v4.6 · 圖片題重繪<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>45 題辨識句意的 135 張選項改用新版向量插畫，讓手上的物品、人物姿勢、位置和數量更清楚。</li><li>時鐘、路線圖、數字與課表提高對比；小螢幕每張圖各占一列。</li><li>題目、答案、音檔和原有學習紀錄沿用。</li></ul></article><article class="updateEntry"><h3>v4.6.1 · 修正手握物品<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>修正手和吉他、書、球、相機、水瓶、紙箱、雨傘、書包提把與腳踏車把手的接觸位置。</li><li>保留原有題目、答案、音檔和其他插畫。</li></ul></article><article class="updateEntry"><h3>v4.6.2 · 吉他握姿微調<time datetime="2026-11-12">2026/11/12</time></h3><ul><li>將吉他放平一些，手扶琴身外緣和琴頸，手肘與手腕的彎曲幅度變小。</li><li>其餘圖片恢復 v4.6。題目、答案和音檔沿用。</li></ul></article><article class="updateEntry"><h3>v4.7.0 · 歷屆專區與彈性練習<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>歷屆專區收錄 103～115 年官方英文題本與參考答案，可在線上作答；聽力逐題播放官方音檔，109 年僅提供閱讀。</li><li>21 題英聽可調速、選限時或不限時，也可一鍵套用仿會考設定。圖片題換回早期簡潔插圖。</li><li>單字加入進階語境挑戰，依句意選出畫線單字的中文意思。</li></ul></article><article class="updateEntry"><h3>v4.7.1 · 進階語境交卷後對答案<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>開始或繼續作答時，只標出選項、不顯示對錯。確認交卷後才顯示分數、正解與解析。</li><li>「複習上回答案」另有入口；複習後可接續這一回的作答。</li></ul></article><article class="updateEntry"><h3>v4.8.0 · 原創閱讀<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>新增 20 道單題與 10 篇題組，共 60 道原創閱讀題。</li><li>每回可選 10 或 20 題，文章和題組一起呈現；確認交卷後才公布成績、正解與解析。</li><li>支援接續未完成的閱讀測驗，在「學習資料」可複習已交卷的閱讀紀錄。</li></ul></article><article class="updateEntry"><h3>v4.8.1 · 歷屆閱讀題組<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>修正 115 年英文閱讀第 24～26 題，作答時會同時顯示宣傳手冊、地圖和題目。</li><li>103～115 年的跨頁閱讀題組，跳到後頁題目時一併顯示前頁資料，可快速切換查看位置。</li></ul></article><article class="updateEntry"><h3>v4.9.0 · 學習大廳<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>開場後直接進入學習大廳，可選原創聽力、原創閱讀、單字測驗或歷屆專區。</li><li>有未交卷的原創聽力、閱讀或單字時，大廳會顯示作答進度並可直接接續。</li><li>登入、學習資料與返回主大廳都在上方導覽列。手機版採用兩欄大卡片。</li></ul></article><article class="updateEntry"><h3>v4.9.1 · 學習紀錄<time datetime="2026-11-14">2026/11/14</time></h3><ul><li>新增三種練習的答對率與交卷回數摘要。</li><li>歷次成績統一按交卷時間排序，可依類別篩選並開啟原本的答案和解析。</li><li>整理聽力錯題、練習統計和帳號備份，保留原有紀錄與同步設定。</li></ul></article></div></details>
 </div>
 <section id="lobby" class="studyLobby" aria-labelledby="lobbyTitle">
   <div class="lobbyHero">
@@ -436,7 +529,7 @@ body.launch-open{overflow:hidden}
       <p id="readScore" class="readScore"></p>
       <p id="readBreakdown" class="small"></p>
     </div>
-    <button type="button" class="btn secondary hidden" id="readWrong">看下一個錯題或未答題 →</button>
+    <div class="recordReadResultActions"><button type="button" class="btn secondary" id="readResultLearning">學習紀錄</button><button type="button" class="btn secondary hidden" id="readWrong">看下一個錯題或未答題 →</button></div>
   </div>
   <div class="readWorkspace">
     <article class="panel readMaterial" aria-labelledby="readPassageTitle">
@@ -567,19 +660,100 @@ body.launch-open{overflow:hidden}
 </section>
 
 <section id="vocabExam" class="hidden" aria-labelledby="vocabExamTitle"><div class="examhead"><div><div class="kicker">VOCABULARY PRACTICE</div><p id="vocabRunInfo" class="vocabRunInfo"></p><h2 id="vocabExamTitle">選出你理解的意思。</h2></div><button id="vocabSaveHome" class="textbtn">儲存並回大廳</button></div><div class="layout"><article class="panel question vocabQuestion"><div class="qtop"><span id="vocabQNumber" class="kicker"></span><span id="vocabQLevel" class="badge"></span></div><p class="typeIntro">這個英文單字的中文意思是什麼？</p><div class="vocabWordBox"><h2 id="vocabWord" lang="en"></h2><span id="vocabPOS"></span></div><div id="vocabOptions" class="options" role="group" aria-label="選擇正確的中文意思"></div><div class="qfoot"><button id="vocabPrev" class="btn secondary">← 上一題</button><button id="vocabFlag" class="textbtn" aria-pressed="false">標記稍後看</button><button id="vocabNext" class="btn">下一題 →</button></div></article><aside class="panel side"><h3 id="vocabExamCount">今天的 20 題</h3><div class="progress"><span id="vocabBar"></span></div><p id="vocabProgressText" class="small" aria-live="polite"></p><div id="vocabGrid" class="grid"></div><p class="legend">紫底：已答 · 外框：目前題 · 黃點：標記</p><button id="vocabSubmit" class="btn primary full">交卷，查看答案</button><p id="vocabSaveStatus" role="status" class="small"></p><p class="note">每題只有一個正確選項。多個常用字義會合在同一個選項中，交卷後可以逐題複習。</p></aside></div></section>
-<section id="vocabResult" class="hidden"><div class="panel resultHero"><div class="kicker">YOUR WORDS ARE GROWING</div><h2 id="vocabResultTitle">把這回練習，變成自己的字。</h2><p id="vocabResultMode" class="vocabResultMode"></p><div id="vocabResultScore" class="grade"></div><h3 id="vocabFeedback"></h3><div class="stats"><div><strong id="vocabCorrect"></strong><span>答對題數</span></div><div><strong id="vocabBlank"></strong><span>未作答</span></div><div><strong id="vocabDuration"></strong><span>作答時間</span></div><div><strong id="vocabLearned"></strong><span>累計測過的不同字詞</span></div></div><div class="actions"><button id="vocabAnother" class="btn primary">再練一回</button><button id="vocabResultHome" class="btn secondary">回主大廳</button><button id="vocabResultLearning" class="btn secondary">學習資料</button><button id="vocabDownload" class="btn secondary">下載單字成績單</button></div><p class="note">這是本回字義辨認成績，不代表官方會考等級或完整字彙量。</p></div><div class="sectionTitle"><h2>再看一次，就更熟悉。</h2><select id="vocabReviewFilter" aria-label="單字複習篩選"><option value="wrong">錯題與未答</option><option id="vocabReviewAll" value="all">全部題目</option></select></div><div id="vocabReviewList" class="reviewlist"></div></section>
+<section id="vocabResult" class="hidden"><div class="panel resultHero"><div class="kicker">YOUR WORDS ARE GROWING</div><h2 id="vocabResultTitle">把這回練習，變成自己的字。</h2><p id="vocabResultMode" class="vocabResultMode"></p><div id="vocabResultScore" class="grade"></div><h3 id="vocabFeedback"></h3><div class="stats"><div><strong id="vocabCorrect"></strong><span>答對題數</span></div><div><strong id="vocabBlank"></strong><span>未作答</span></div><div><strong id="vocabDuration"></strong><span>作答時間</span></div><div><strong id="vocabLearned"></strong><span>累計測過的不同字詞</span></div></div><div class="actions"><button id="vocabAnother" class="btn primary">再練一回</button><button id="vocabResultHome" class="btn secondary">回主大廳</button><button id="vocabResultLearning" class="btn secondary">學習紀錄</button><button id="vocabDownload" class="btn secondary">下載單字成績單</button></div><p class="note">這是本回字義辨認成績，不代表官方會考等級或完整字彙量。</p></div><div class="sectionTitle"><h2>再看一次，就更熟悉。</h2><select id="vocabReviewFilter" aria-label="單字複習篩選"><option value="wrong">錯題與未答</option><option id="vocabReviewAll" value="all">全部題目</option></select></div><div id="vocabReviewList" class="reviewlist"></div></section>
 
 <section id="exam" class="hidden"><div class="examhead"><div><div id="examMode" class="kicker"></div><h2 id="sectionTitle">準備開始聆聽</h2></div><div><div id="timer" class="timer" aria-label="剩餘時間"></div><button class="textbtn" id="homeBtn">儲存並回大廳</button></div></div><div class="layout"><article class="panel question"><div class="qtop"><span id="qNumber" class="kicker"></span><span id="qLevel" class="badge"></span></div><p id="typeInstruction" class="typeIntro"></p><div class="audioBox"><div class="playRow"><button id="playBtn" class="playIcon" aria-label="播放本題">▶</button><div style="flex:1"><strong id="playTitle">播放題目</strong><div id="audioStatus" class="small" role="status"></div></div><label id="speedWrap" class="small">速度 <select id="speed"><option value="0.8">0.8×</option><option value="0.9" selected>0.9×</option><option value="1">1×</option><option value="1.15">1.15×</option></select></label></div><div class="audioProgress"><span id="audioBar"></span></div><div class="small" id="audioTime"></div></div><h2 id="prompt" style="font-size:21px"></h2><div id="options" class="options" role="group" aria-label="選擇答案"></div><div class="qfoot"><button class="btn secondary" id="prevBtn">← 上一題</button><button class="textbtn" id="flagBtn" aria-pressed="false">標記稍後看</button><button class="btn" id="nextBtn">下一題 →</button></div></article><aside class="panel side"><h3>作答進度</h3><div class="progress"><span id="bar"></span></div><p class="small" id="progressText" aria-live="polite"></p><div id="questionGrid" class="grid"></div><p class="legend">紫底：已答 · 外框：目前題 · 黃點：標記</p><button class="btn primary full" id="submitBtn">交卷，查看成績</button><p id="status" role="status"></p><p class="note" id="examHelp"></p></aside></div></section>
-<section id="result" class="hidden"><div class="panel resultHero"><div class="kicker">Every attempt counts</div><h2>這次，你聽懂了多少？</h2><p class="small" id="resultMode"></p><div id="grade" class="grade"></div><h3 id="feedback"></h3><div class="stats"><div><strong id="score"></strong><span>換算分數 / 100</span></div><div><strong id="correctCount"></strong><span>答對題數</span></div><div><strong id="blankCount"></strong><span>未答題數</span></div><div><strong id="duration"></strong><span>作答時間</span></div></div><div class="actions"><button class="btn secondary" onclick="showLearning()">學習資料</button><button class="btn primary" id="retryBtn">再挑戰一份</button><button class="btn secondary" id="newBtn">回主大廳</button><button class="btn secondary" id="downloadBtn">下載成績單</button></div><p class="note">A++ ≥ 95 · A+ ≥ 90 · A ≥ 85 · B++ ≥ 80 · B+ ≥ 70 · B ≥ 60 · C &lt; 60。依未四捨五入分數評級；此為自訂模擬評級，非官方會考換算。正式英語加標示須合併閱讀及聽力成績，單獨英聽不加標示。</p><p id="submitReason" class="small"></p></div><div id="typeStats" class="levelstats" style="grid-template-columns:repeat(3,1fr)"></div><div class="sectionTitle"><h2>重聽一次，把意思串起來。</h2><select id="reviewFilter" aria-label="複習題目"><option value="wrong">錯題與未答</option><option value="all">全部題目</option></select></div><div id="reviewList" class="reviewlist"></div></section>
-<section id="learning" class="hidden"><div class="sectionTitle"><div><div class="kicker">Learning record</div><h2>學習資料</h2><p id="learningAccount" class="small"></p></div><button id="learningHome" class="btn secondary">回主大廳</button></div>
-<section id="googleAccountPanel" class="panel googleAccountPanel hidden" aria-labelledby="googleAccountTitle">
-  <div><h3 id="googleAccountTitle">Google 帳號</h3><p id="googleLinkHint">連結後，可以用 Google 登入並接續這個帳號的學習紀錄。</p></div>
-  <button id="googleLinkBtn" class="btn secondary" type="button" aria-describedby="googleLinkHint">連結 Google</button>
-  <p id="googleLinkMessage" class="googleAccountMessage" role="status" aria-live="polite"></p>
+<section id="result" class="hidden"><div class="panel resultHero"><div class="kicker">Every attempt counts</div><h2>這次，你聽懂了多少？</h2><p class="small" id="resultMode"></p><div id="grade" class="grade"></div><h3 id="feedback"></h3><div class="stats"><div><strong id="score"></strong><span>換算分數 / 100</span></div><div><strong id="correctCount"></strong><span>答對題數</span></div><div><strong id="blankCount"></strong><span>未答題數</span></div><div><strong id="duration"></strong><span>作答時間</span></div></div><div class="actions"><button class="btn secondary" onclick="showLearning('listening')">學習紀錄</button><button class="btn primary" id="retryBtn">再挑戰一份</button><button class="btn secondary" id="newBtn">回主大廳</button><button class="btn secondary" id="downloadBtn">下載成績單</button></div><p class="note">A++ ≥ 95 · A+ ≥ 90 · A ≥ 85 · B++ ≥ 80 · B+ ≥ 70 · B ≥ 60 · C &lt; 60。依未四捨五入分數評級；此為自訂模擬評級，非官方會考換算。正式英語加標示須合併閱讀及聽力成績，單獨英聽不加標示。</p><p id="submitReason" class="small"></p></div><div id="typeStats" class="levelstats" style="grid-template-columns:repeat(3,1fr)"></div><div class="sectionTitle"><h2>重聽一次，把意思串起來。</h2><select id="reviewFilter" aria-label="複習題目"><option value="wrong">錯題與未答</option><option value="all">全部題目</option></select></div><div id="reviewList" class="reviewlist"></div></section>
+<section id="learning" class="records hidden" aria-labelledby="learningTitle">
+  <div class="recordHero">
+    <div class="recordHeroCopy">
+      <p class="recordEyebrow"><span aria-hidden="true"></span> 我的練習 · LEARNING RECORDS</p>
+      <h2 id="learningTitle" tabindex="-1">學習紀錄</h2>
+      <p id="learningAccount" class="recordProfile"></p>
+    </div>
+    <div class="recordHeroSide">
+      <div class="recordHeroStat"><span>累計交卷</span><div><strong id="recordTotal">0</strong><span>回</span></div></div>
+      <button type="button" id="learningHome" class="recordHomeButton">回主大廳 <span aria-hidden="true">↗</span></button>
+    </div>
+  </div>
+
+  <div class="recordOverview" role="group" aria-label="各類練習摘要與篩選">
+    <button type="button" id="recordSummaryListen" class="recordSummary recordListening" aria-controls="recordHistoryList" aria-pressed="false">
+      <span class="recordOverviewTop"><span class="recordCategoryIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M3.5 13v-1a8.5 8.5 0 1 1 17 0v1M6 11.5h1.5A1.5 1.5 0 0 1 9 13v4a1.5 1.5 0 0 1-1.5 1.5H6A2.5 2.5 0 0 1 3.5 16v-2A2.5 2.5 0 0 1 6 11.5Zm12 0h-1.5A1.5 1.5 0 0 0 15 13v4a1.5 1.5 0 0 0 1.5 1.5H18a2.5 2.5 0 0 0 2.5-2.5v-2a2.5 2.5 0 0 0-2.5-2.5Z"/></svg></span><span>原創聽力</span><span class="recordTileArrow" aria-hidden="true">↗</span></span>
+      <span class="recordOverviewScore"><strong id="learnAccuracy">—</strong><span>答對率</span></span>
+      <span class="recordOverviewFoot">已交卷 <b id="learnRuns">0</b> 回</span>
+    </button>
+    <button type="button" id="recordSummaryRead" class="recordSummary recordReading" aria-controls="recordHistoryList" aria-pressed="false">
+      <span class="recordOverviewTop"><span class="recordCategoryIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M12 6.5C9.5 4.5 6.7 4.4 3 5v13c3.7-.6 6.5-.5 9 1.5 2.5-2 5.3-2.1 9-1.5V5c-3.7-.6-6.5-.5-9 1.5Zm0 0v13M6.5 9h2m-2 3h2m7-3h2m-2 3h2"/></svg></span><span>原創閱讀</span><span class="recordTileArrow" aria-hidden="true">↗</span></span>
+      <span class="recordOverviewScore"><strong id="readLearnAccuracy">—</strong><span>答對率</span></span>
+      <span class="recordOverviewFoot">已交卷 <b id="readLearnRuns">0</b> 回</span>
+    </button>
+    <button type="button" id="recordSummaryVocab" class="recordSummary recordVocabulary" aria-controls="recordHistoryList" aria-pressed="false">
+      <span class="recordOverviewTop"><span class="recordCategoryIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="m3 17 4.3-10 4.3 10m-7.3-3h6m9.9 3v-3.7a2.6 2.6 0 0 0-4.6-1.6m4.6 2-.8-.2c-2.4-.5-4 .5-4 1.8 0 2.3 3.2 2.2 4.8.6"/></svg></span><span>單字測驗</span><span class="recordTileArrow" aria-hidden="true">↗</span></span>
+      <span class="recordOverviewScore"><strong id="vocabLearnAccuracy">—</strong><span>答對率</span></span>
+      <span class="recordOverviewFoot">已交卷 <b id="vocabLearnRuns">0</b> 回</span>
+    </button>
+  </div>
+
+  <div class="recordWorkspace">
+    <section class="panel recordHistory" aria-labelledby="recordHistoryTitle">
+      <div class="recordHistoryHead">
+        <div><h3 id="recordHistoryTitle" tabindex="-1">歷次成績</h3><p>依交卷時間，由新到舊排列。</p></div>
+        <span id="recordHistoryCount" class="recordCount" role="status">0 筆</span>
+      </div>
+      <div class="recordFilters" role="group" aria-label="依練習類別篩選">
+        <button type="button" id="recordFilterAll" aria-pressed="true" aria-controls="recordHistoryList">全部</button>
+        <button type="button" id="recordFilterListen" aria-pressed="false" aria-controls="recordHistoryList">聽力</button>
+        <button type="button" id="recordFilterRead" aria-pressed="false" aria-controls="recordHistoryList">閱讀</button>
+        <button type="button" id="recordFilterVocab" aria-pressed="false" aria-controls="recordHistoryList">單字</button>
+      </div>
+      <div id="recordHistoryList" class="recordHistoryList"></div>
+      <button type="button" id="recordMore" class="btn secondary recordMore hidden" aria-controls="recordHistoryList">顯示更多</button>
+    </section>
+
+    <aside class="recordSidebar" aria-label="複習、統計與備份">
+      <details id="recordWrongPanel" class="panel recordDisclosure">
+        <summary><span class="recordDisclosureIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M20 11a8 8 0 1 1-2.4-5.7L20 8m0-4v4h-4m-4 0v4l2.5 1.5"/></svg></span><span class="recordSummaryText"><strong>聽力錯題複習</strong><small id="wrongCount">0 題待複習</small></span><span class="recordChevron" aria-hidden="true"></span></summary>
+        <div class="recordDisclosureBody"><p class="recordSmall">收錄每題最近一回交卷時答錯或未作答的題目。</p><div id="wrongList" class="recordWrongList"></div><button type="button" id="recordWrongMore" class="btn secondary recordWrongMore hidden" aria-controls="wrongList">顯示更多錯題</button></div>
+      </details>
+      <details id="recordStatsPanel" class="panel recordDisclosure">
+        <summary><span class="recordDisclosureIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M4 19.5h16M7 16V11m5 5V6m5 10V9"/></svg></span><span class="recordSummaryText"><strong>練習統計</strong><small>題型表現與學習累積</small></span><span class="recordChevron" aria-hidden="true"></span></summary>
+        <div class="recordDisclosureBody">
+          <p class="recordSmall">答對率以已交卷的總題數計算，包含未作答的題目。</p>
+          <dl class="recordDetailsStats">
+            <div><dt>聽力 · 已作答題庫題數</dt><dd id="learnUnique">0 / 300</dd></div>
+            <div><dt>聽力 · 累計作答時間</dt><dd id="learnTime">0 分</dd></div>
+            <div><dt>單字 · 已作答字詞數</dt><dd id="vocabLearnUnique">0</dd></div>
+            <div><dt>單字 · 跨至少三天連續答對</dt><dd id="vocabMastered">0</dd></div>
+          </dl>
+          <div id="learnTypes" class="recordListeningTypes" aria-label="聽力各題型答對率"></div>
+        </div>
+      </details>
+      <details id="recordToolsPanel" class="panel recordDisclosure">
+        <summary><span class="recordDisclosureIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M7 17.5a4.5 4.5 0 0 1-.5-9 5.5 5.5 0 0 1 10.4-.3A4.7 4.7 0 1 1 18 17.5m-6-5v8m-3-3 3 3 3-3"/></svg></span><span class="recordSummaryText"><strong>帳號與備份</strong><small>Google 帳號、同步、備份</small></span><span class="recordChevron" aria-hidden="true"></span></summary>
+        <div class="recordDisclosureBody">
+          <p id="learningSync" class="recordSmall" role="status"></p>
+          <p class="recordSmall">同步與備份包含聽力和單字。原創閱讀紀錄保留在作答的瀏覽器。</p>
+          <section id="googleAccountPanel" class="googleAccountPanel hidden" aria-labelledby="googleAccountTitle">
+            <div><h4 id="googleAccountTitle">Google 帳號</h4><p id="googleLinkHint">連結後，可以用 Google 登入並接續這個帳號的學習紀錄。</p></div>
+            <button id="googleLinkBtn" class="btn secondary recordReview" type="button" aria-describedby="googleLinkHint">連結 Google</button>
+            <p id="googleLinkMessage" class="googleAccountMessage" role="status" aria-live="polite"></p>
+          </section>
+          <div class="recordToolButtons">
+            <button id="syncBtn" type="button" class="btn secondary">同步資料</button>
+            <button id="exportData" type="button" class="btn secondary">匯出備份</button>
+            <button id="importData" type="button" class="btn secondary">匯入備份</button>
+            <button id="importGuestBtn" type="button" class="btn secondary hidden">加入訪客成績</button>
+            <button id="logoutBtn" type="button" class="btn danger hidden">登出</button>
+          </div>
+          <input type="file" id="importFile" accept="application/json,.json" class="hidden">
+          <p id="backupStatus" class="recordSmall" role="status"></p>
+        </div>
+      </details>
+    </aside>
+  </div>
 </section>
-<div class="sectionTitle"><h2>單字測驗</h2></div><div class="panel"><div class="stats"><div><strong id="vocabLearnRuns">0</strong><span>已完成回數</span></div><div><strong id="vocabLearnUnique">0</strong><span>已測不同字詞</span></div><div><strong id="vocabLearnAccuracy">—</strong><span>歷次答對率（含未答）</span></div><div><strong id="vocabMastered">0</strong><span>跨至少三天連續答對的字詞</span></div></div><p class="note">每回 20 題；同字多義合併。最近答錯及到期的字詞會安排再次練習。</p><div id="vocabHistory"></div></div><div class="sectionTitle"><div><h2>原創閱讀</h2><p class="small">閱讀紀錄保存在這個瀏覽器。</p></div></div><div id="readHistory" class="panel"></div>
-<div class="sectionTitle"><h2>聽力測驗</h2></div>
-<div class="panel"><div class="stats"><div><strong id="learnRuns">0</strong><span>已交卷次數</span></div><div><strong id="learnUnique">0 / 300</strong><span>不同已作答題目</span></div><div><strong id="learnAccuracy">—</strong><span>歷次答對率（含未答）</span></div><div><strong id="learnTime">0 分</strong><span>已交卷作答時間</span></div></div><p id="learningSync" class="small" role="status"></p><div class="actions"><button id="syncBtn" class="btn secondary">同步資料</button><button id="exportData" class="btn secondary">匯出備份</button><button id="importData" class="btn secondary">匯入備份</button><button id="importGuestBtn" class="btn secondary hidden">加入訪客成績</button><button id="logoutBtn" class="btn danger hidden">登出</button></div><input type="file" id="importFile" accept="application/json,.json" class="hidden"><p id="backupStatus" class="small" role="status"></p></div><div id="learnTypes" class="levelstats" style="grid-template-columns:repeat(3,1fr)"></div><div class="sectionTitle"><h2>歷次成績</h2></div><div id="historyList" class="panel"></div><div class="sectionTitle"><h2>待複習錯題</h2><span id="wrongCount" class="badge"></span></div><div id="wrongList" class="panel"></div></section><section id="installAppCard" class="panel installCard" aria-labelledby="installAppTitle"><div class="installBrand"><img class="brandIcon" src="./icons/king-192.png" width="192" height="192" alt=""><div><h2 id="installAppTitle">把會考準備王放進桌面</h2><p id="installAppHint" class="small">安裝後，點桌面圖示就能開啟；安裝完成後，此區塊會自動隱藏。</p></div></div><button id="installAppButton" type="button" class="btn primary">安裝應用程式</button></section><p class="bottomNote">會考準備王 · 國中英語練習</p></main>
+<section id="installAppCard" class="panel installCard" aria-labelledby="installAppTitle"><div class="installBrand"><img class="brandIcon" src="./icons/king-192.png" width="192" height="192" alt=""><div><h2 id="installAppTitle">把會考準備王放進桌面</h2><p id="installAppHint" class="small">安裝後，點桌面圖示就能開啟；安裝完成後，此區塊會自動隱藏。</p></div></div><button id="installAppButton" type="button" class="btn primary">安裝應用程式</button></section><p class="bottomNote">會考準備王 · 國中英語練習</p></main>
 <dialog id="confirmDialog" aria-labelledby="dialogTitle"><h3 id="dialogTitle"></h3><p id="dialogText"></p><div class="actions"><button class="btn secondary" id="cancelDialog">返回</button><button class="btn primary" id="confirmDialogBtn">確定</button></div></dialog><dialog id="accountDialog" aria-labelledby="authTitle" aria-describedby="authSubtitle">
   <div class="authShell">
     <aside class="authStory" aria-hidden="true">
@@ -603,7 +777,7 @@ body.launch-open{overflow:hidden}
         <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.23 5.48-4.74 7.18l7.73 6C44.44 38.03 46.98 31.87 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.75-2.99-.75-4.59s.27-3.14.76-4.59l-7.98-6.19A23.89 23.89 0 0 0 0 24c0 3.87.92 7.53 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.93-5.8l-7.73-6c-2.15 1.45-4.93 2.3-8.2 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.97 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
         <span id="authGoogleText">使用 Google 登入</span>
       </button>
-      <p id="authGoogleHint" class="authGoogleHint">已有帳號？先用原本的方式登入，再到「學習資料」連結 Google。</p>
+      <p id="authGoogleHint" class="authGoogleHint">已有帳號？先用原本的方式登入，再到「學習紀錄 → 帳號與備份」連結 Google。</p>
       <p id="googleAuthMessage" class="authMessage" role="status" aria-live="polite"></p>
       <p class="authGoogleDivider">或使用 Email</p>
       <form id="authForm">
@@ -754,12 +928,12 @@ function sampleMock(difficulty){
 function validState(x){if(!x||![2,3].includes(x.version)||!['full','mock','all'].includes(x.mode)||!['mixed','basic','hard'].includes(x.difficulty)||!Array.isArray(x.ids)||!(x.mode==='mock'?[21]:x.mode==='all'?[200,300]:[100]).includes(x.ids.length)||new Set(x.ids).size!==x.ids.length||x.ids.some(id=>!Number.isInteger(id)||!BANK[id-1]))return false;if(x.runId&&!/^[-a-zA-Z0-9_]{1,100}$/.test(x.runId))return false;if(x.viewed!==undefined&&(!Array.isArray(x.viewed)||x.viewed.some(id=>!Number.isInteger(id)||!x.ids.includes(id))))return false;if(x.updatedAt!==undefined&&!Number.isFinite(x.updatedAt))return false;const n=x.ids.length;if(x.mode==='mock'&&x.ids.some((id,i)=>BANK[id-1].type!==(i<3?'picture':i<11?'response':'talk')))return false;return Array.isArray(x.answers)&&x.answers.length===n&&x.answers.every(a=>a===null||Number.isInteger(a)&&a>=0&&a<=2)&&Array.isArray(x.flags)&&x.flags.length===n&&x.flags.every(a=>typeof a==='boolean')&&Array.isArray(x.plays)&&x.plays.length===n&&x.plays.every(a=>Number.isInteger(a)&&a>=0&&a<=2)&&Number.isInteger(x.index)&&x.index>=0&&x.index<n&&Number.isFinite(x.elapsed)&&x.elapsed>=0&&typeof x.submitted==='boolean'&&Number.isFinite(x.started)&&Number.isFinite(x.deadline)}
 function load(){try{const x=JSON.parse(localStorage.getItem(KEY));return validState(x)?x:null}catch{return null}}
 function checkpoint(){if(state&&practiceStart!==null){state.elapsed+=Math.max(0,Date.now()-practiceStart);practiceStart=Date.now()}}
-function save(){checkpoint();const source=parkedState||state;try{if(source){source.updatedAt=Date.now();if(!source.runId)source.runId=makeId();localStorage.setItem(KEY,JSON.stringify(source))}saving=true}catch{saving=false}$('status').textContent=saving?(currentUser?'進度已存本機，雲端狀態請看上方同步提示。':'進度已保存於此瀏覽器。'):'無法保存本機進度，請匯出學習資料備份。';scheduleCloud()}
+function save(){checkpoint();const source=storedListeningProgress();try{if(source){source.updatedAt=Date.now();if(!source.runId)source.runId=makeId();localStorage.setItem(KEY,JSON.stringify(source))}saving=true}catch{saving=false}$('status').textContent=saving?(currentUser?'進度已存本機，雲端狀態請看上方同步提示。':'進度已保存於此瀏覽器。'):'無法保存本機進度，請匯出學習資料備份。';scheduleCloud()}
 
 function label(){return state.mode==='all'?'完整 '+state.ids.length+' 題練習':state.mode==='full'?'隨機 100 題練習':'仿會考 21 題 · '+{mixed:state.bankRevision===BANK_REVISION?'會考標準':'標準混合',basic:'基礎鞏固',hard:'進階挑戰'}[state.difficulty]}
 function current(){return listeningQuestion(state.ids[state.index],state.bankRevision)}
 function stopSound(){playToken++;clearTimeout(gapTimer);gapTimer=null;player.pause();player.onended=null;audioIndex=-1;document.querySelectorAll('audio').forEach(a=>a.pause());if(previewPlayer)previewPlayer.pause();previewing=false;$('previewBtn').textContent='▶ 試聽音檔'}
-function switchView(id){if(id!=='readingExam')clearReadingExam();if(id!=='pastCenter')archiveStop();if(id!=='contextArea')contextStop();if(id!=='exam'&&practiceStart!==null){save();practiceStart=null}if(id!=='vocabExam')pauseVocab();stopSound();for(const name of ['lobby','home','exam','result','learning','vocabExam','vocabResult','pastCenter','contextArea','readingExam'])$(name).classList.toggle('hidden',name!==id);if(id==='lobby')$('lobbyHomeNav').setAttribute('aria-current','page');else $('lobbyHomeNav').removeAttribute('aria-current');window.scrollTo({top:0,behavior:'instant'})}
+function switchView(id){if(id!=='readingExam')clearReadingExam();if(id!=='pastCenter')archiveStop();if(id!=='contextArea')contextStop();if(id!=='exam'&&practiceStart!==null){save();practiceStart=null}if(id!=='vocabExam')pauseVocab();stopSound();for(const name of ['lobby','home','exam','result','learning','vocabExam','vocabResult','pastCenter','contextArea','readingExam'])$(name).classList.toggle('hidden',name!==id);if(id==='lobby')$('lobbyHomeNav').setAttribute('aria-current','page');else $('lobbyHomeNav').removeAttribute('aria-current');if(id==='learning')$('learningBtn').setAttribute('aria-current','page');else $('learningBtn').removeAttribute('aria-current');window.scrollTo({top:0,behavior:'instant'})}
 const listeningMinutes=[0,10,15,20,25,30],listeningRates=[.8,.9,1,1.15];
 function strictListening(x){return x?.mode==='mock'&&(x.strict??true)}
 function timedListening(x){return x?.mode==='mock'&&x.deadline>0}
@@ -858,7 +1032,7 @@ $('listenOfficial').onclick=()=>openPast('listening');$('studyPast').onclick=()=
 $('prevBtn').onclick=()=>navigate(state.index-1);$('nextBtn').onclick=()=>navigate(state.index+1);$('flagBtn').onclick=()=>{if(expired())return;state.flags[state.index]=!state.flags[state.index];save();$('flagBtn').textContent=state.flags[state.index]?'已標記 ✓':'標記稍後看';$('flagBtn').setAttribute('aria-pressed',String(state.flags[state.index]));renderProgress()};
 $('submitBtn').onclick=()=>{if(expired())return;const n=state.answers.filter(a=>a===null).length;confirmBox('確定交卷？',n?'還有 '+n+' 題未作答，未答以 0 分計算。交卷後顯示答案與解析。':'全部題目已完成。交卷後顯示成績與逐題解析。',()=>finish('manual'))};
 $('cancelDialog').onclick=()=>{$('confirmDialog').close();confirmAction=null;if(state&&!state.submitted&&!$('exam').classList.contains('hidden'))renderPlayStatus()};$('confirmDialog').addEventListener('cancel',()=>{confirmAction=null;if(state&&!state.submitted)renderPlayStatus()});$('confirmDialogBtn').onclick=()=>{const action=confirmAction;confirmAction=null;$('confirmDialog').close();if(action)action()};$('reviewFilter').onchange=renderReview;$('newBtn').onclick=home;
-$('retryBtn').onclick=()=>confirmBox('再挑戰一次？','這次成績已保留在學習資料。開始新測驗會取代未完成的測驗；抽題會優先選較少看過的題目。',()=>fresh(state.mode,state.difficulty,state.submitted&&state.deadline===0&&parkedState?readListenSettings(state.mode):{strict:strictListening(state),minutes:Math.round(durationLimit(state)/60000),rate:listeningRate(state)}));
+$('retryBtn').onclick=()=>confirmBox('再挑戰一次？','這次成績已保留在學習紀錄。開始新測驗會取代未完成的測驗；抽題會優先選較少看過的題目。',()=>fresh(state.mode,state.difficulty,state.submitted&&state.deadline===0&&parkedState?readListenSettings(state.mode):{strict:strictListening(state),minutes:Math.round(durationLimit(state)/60000),rate:listeningRate(state)}));
 $('previewBtn').onclick=async()=>{if(previewing){stopSound();$('previewStatus').textContent='試聽已停止。';return}stopSound();previewPlayer=new Audio(listeningAudio(BANK[50]));previewPlayer.playbackRate=Number($('homeSpeed').value);previewing=true;$('previewBtn').textContent='■ 停止試聽';$('previewStatus').textContent='試聽新版的車站短對話。';previewPlayer.onended=()=>{previewing=false;$('previewBtn').textContent='▶ 試聽音檔';$('previewStatus').textContent='試聽結束。'};try{await previewPlayer.play()}catch{previewing=false;$('previewBtn').textContent='▶ 重新試聽';$('previewStatus').textContent='請確認瀏覽器允許播放聲音，再按一次。'}};
 $('downloadBtn').onclick=()=>{const r=resultData(),lines=['會考準備王｜英聽成績單',new Date().toLocaleString('zh-TW'),label(),'答對：'+r.correct+'/'+r.qs.length+'　未答：'+r.blank,'換算分數：'+r.score.toFixed(1)+'/100　練習評級：'+r.grade,'作答時間：'+timeText(),'A++≥95；A+≥90；A≥85；B++≥80；B+≥70；B≥60；C<60。依未四捨五入分數評級；自訂模擬評級，非官方會考換算；正式英語加標示須合併閱讀及聽力成績。','本卷為參照會考結構之原創題，非歷屆原題。',''];r.qs.forEach((q,i)=>{const a=state.answers[i];lines.push('第 '+(i+1)+' 題（題庫 #'+q.id+'） '+TYPES[q.type].name,q.question||'',q.segments.map(s=>s.role+': '+s.text).join('\n'),'你的答案：'+(a===null?'未作答':'ABC'[a]+'. '+optionLabel(q,a)),'正確答案：'+'ABC'[q.answer]+'. '+optionLabel(q,q.answer),'解析：'+q.explanation,'')});lines.push('參考：國中教育會考歷屆試題 https://cap.rcpet.edu.tw/examination.html');const u=URL.createObjectURL(new Blob(['\ufeff'+lines.join('\n')],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='會考英聽成績單.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
 document.addEventListener('visibilitychange',()=>{if(document.hidden){save();if(state&&!timedListening(state))practiceStart=null;stopSound();if(state&&!state.submitted&&!$('exam').classList.contains('hidden'))renderPlayStatus()}else if(state&&!state.submitted&&!$('exam').classList.contains('hidden')){if(expired())return;if(!timedListening(state))practiceStart=Date.now();tick()}});window.addEventListener('pagehide',save);setInterval(tick,1000);
@@ -893,24 +1067,141 @@ function recordAttempt(){if(!state?.submitted)return;state.runId=state.runId||ma
 function priorityPool(pool,n){const grouped=new Map();for(const q of shuffle(pool)){const seen=learning.seen[q.id]||0;if(!grouped.has(seen))grouped.set(seen,[]);grouped.get(seen).push(q)}return [...grouped.keys()].sort((a,b)=>a-b).flatMap(key=>grouped.get(key)).slice(0,n)}
 function samplePractice(){return [...listeningMix('picture',[8,7,0]),...listeningMix('response',[17,18,0]),...listeningMix('talk',[20,24,6])];}
 function recordLabel(r){return r.mode==='mock'?'仿會考 21 題':r.mode==='all'?'完整 '+r.ids.length+' 題':'隨機 100 題'}
-function showLearning(){pauseVocab();if(practiceStart!==null){save();practiceStart=null}switchView('learning');renderLearning()}
-function renderLearning(){
- renderReadingLearning();
- renderVocabLearning();
- const all=learning.attempts,completed=new Set(all.flatMap(a=>a.ids.filter((id,i)=>a.answers[i]!==null))),total=all.reduce((n,a)=>n+a.ids.length,0),correct=all.reduce((n,a)=>n+a.correct,0),latest={};
- for(const a of all)a.ids.forEach((id,i)=>{if(!(id in latest))latest[id]={right:a.answers[i]===listeningQuestion(id,a.bankRevision).answer,revision:a.bankRevision}});
- const wrong=Object.keys(latest).map(Number).filter(id=>!latest[id].right);
- $('learningAccount').textContent=currentUser?'帳號：'+(currentUser.displayName||currentUser.email):'訪客模式 · 資料保存在這個瀏覽器';
- $('learnRuns').textContent=all.length;$('learnUnique').textContent=completed.size+' / '+BANK.length;$('learnAccuracy').textContent=total?(correct/total*100).toFixed(1)+'%':'—';$('learnTime').textContent=Math.floor(all.reduce((n,a)=>n+a.elapsed,0)/60000)+' 分';
- $('learnTypes').replaceChildren();for(const type of ['picture','response','talk']){let n=0,c=0;for(const a of all)a.ids.forEach((id,i)=>{if(BANK[id-1].type===type){n++;if(a.answers[i]===listeningQuestion(id,a.bankRevision).answer)c++}});const box=document.createElement('div');box.className='levelstat';addText(box,'span',TYPES[type].name);addText(box,'strong',n?(c/n*100).toFixed(1)+'%':'—');addText(box,'span',c+' / '+n+' 題答對');$('learnTypes').append(box)}
- $('historyList').replaceChildren();for(const a of all){const row=document.createElement('article');row.className='historyRow';const text=document.createElement('div');addText(text,'strong',recordLabel(a)+' · '+a.grade+' · '+a.score.toFixed(1)+' 分');addText(text,'p',new Date(a.finished).toLocaleString('zh-TW')+' · '+a.correct+'/'+a.ids.length+' 題答對','small');const b=addText(row,'button','查看解析','btn secondary');row.prepend(text);b.onclick=()=>openAttempt(a);$('historyList').append(row)}if(!all.length)addText($('historyList'),'p','完成並交卷後，成績會自動記在這裡。','small');
- $('wrongList').replaceChildren();$('wrongCount').textContent=wrong.length+' 題';for(const id of wrong){const q=listeningQuestion(id,latest[id].revision),box=document.createElement('details');box.className='wrongEntry';addText(box,'summary','題庫 #'+id+' · '+TYPES[q.type].name);const audio=document.createElement('audio');audio.controls=true;audio.preload='none';audio.src=listeningAudio(q);audio.onplay=()=>document.querySelectorAll('audio').forEach(other=>{if(other!==audio)other.pause()});box.append(audio);addText(box,'p',q.segments.map(s=>s.text).join('\n'),'transcript');if(q.type==='picture'){const opt=document.createElement('div');renderOptions(opt,q,q.answer,true);box.append(opt)}addText(box,'p','正確答案：'+'ABC'[q.answer]+'. '+optionLabel(q,q.answer),'answerline correct');addText(box,'p',q.explanation,'explanation');$('wrongList').append(box)}if(!wrong.length)addText($('wrongList'),'p','目前沒有待複習的錯題。這裡依每題最近一次交卷結果整理。','small');
- $('importGuestBtn').classList.toggle('hidden',!currentUser);$('logoutBtn').classList.toggle('hidden',!currentUser);$('navLogoutBtn').classList.toggle('hidden',!currentUser);$('accountBtn').textContent=currentUser?'切換帳號':'登入／註冊';renderGoogleAccount();
+const recordKinds = {
+  listening:{name:'原創聽力',short:'聽力',color:'recordListening',summary:'recordSummaryListen',filter:'recordFilterListen'},
+  reading:{name:'原創閱讀',short:'閱讀',color:'recordReading',summary:'recordSummaryRead',filter:'recordFilterRead'},
+  vocabulary:{name:'單字測驗',short:'單字',color:'recordVocabulary',summary:'recordSummaryVocab',filter:'recordFilterVocab'}
+};
+const recordChunk=8;
+const recordDate=new Intl.DateTimeFormat('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false});
+let recordFilter='all',recordLimit=recordChunk,recordRows=[],recordWrongRows=[];
+
+function showLearning(kind='all'){
+  switchView('learning');restoreParked();
+  recordFilter=Object.hasOwn(recordKinds,kind)?kind:'all';recordLimit=recordChunk;
+  renderLearning();$('learningTitle').focus({preventScroll:true});
 }
-function openAttempt(a){if(state&&!state.submitted){confirmBox('查看過去成績？','目前的測驗進度會保留；查看後可回首頁繼續。',()=>displayAttempt(a));return}displayAttempt(a)}
+function renderLearning(){
+  $('importGuestBtn').classList.toggle('hidden',!currentUser);$('logoutBtn').classList.toggle('hidden',!currentUser);
+  $('navLogoutBtn').classList.toggle('hidden',!currentUser);$('accountBtn').textContent=currentUser?'切換帳號':'登入／註冊';renderGoogleAccount();
+  if($('learning').classList.contains('hidden'))return;
+  $('learningAccount').textContent=currentUser?'帳號：'+(currentUser.displayName||currentUser.email||'已登入'):'訪客模式 · 紀錄保存在此瀏覽器';
+  const lists={listening:learning.attempts,reading:readReadingRecord().attempts,vocabulary:vocabLearning.attempts};
+  const completed=new Set(),latest=new Map(),wordStats=vocabStats();
+  const typeStats=Object.fromEntries(Object.keys(TYPES).map(type=>[type,{right:0,total:0}]));
+  const sums=Object.fromEntries(Object.keys(recordKinds).map(kind=>[kind,{right:0,total:0}]));
+  recordRows=[];
+  function recordRow(kind,title,at,right,total,score,details,action){
+    sums[kind].right+=right;sums[kind].total+=total;
+    recordRows.push({kind,title,at,right,total,score,details,action});
+  }
+  for(const a of lists.listening){
+    recordRow('listening',recordLabel(a),a.finished,a.correct,a.ids.length,a.score.toFixed(1),[a.grade,vocabTime(a.elapsed)],()=>openAttempt(a));
+    a.ids.forEach((id,i)=>{
+      const correct=a.answers[i]===listeningQuestion(id,a.bankRevision).answer;
+      if(a.answers[i]!==null)completed.add(id);
+      if(!latest.has(id)||a.finished>latest.get(id).at)latest.set(id,{id,at:a.finished,right:correct,revision:a.bankRevision});
+      const type=typeStats[BANK[id-1].type];type.total++;if(correct)type.right++;
+    });
+  }
+  for(const a of lists.reading){
+    const s=summarizeReading(a);
+    recordRow('reading',readingTitle(a),a.at,s.correct,s.total,String(s.score),[],()=>openReading('review',a.id));
+  }
+  for(const a of lists.vocabulary){
+    recordRow('vocabulary',vocabRunLabel(a)+'模式',a.finished,a.correct,a.questions.length,String(a.score),[vocabTime(a.elapsed)],()=>showVocabResult(a));
+  }
+  recordRows.sort((a,b)=>b.at-a.at);
+  $('recordTotal').textContent=recordRows.length;
+  for(const [kind,runs,accuracy] of [['listening','learnRuns','learnAccuracy'],['reading','readLearnRuns','readLearnAccuracy'],['vocabulary','vocabLearnRuns','vocabLearnAccuracy']]){
+    const {right,total}=sums[kind];
+    $(runs).textContent=lists[kind].length;$(accuracy).textContent=total?(right/total*100).toFixed(1)+'%':'—';
+  }
+  $('learnUnique').textContent=completed.size+' / '+BANK.length;
+  $('learnTime').textContent=Math.floor(lists.listening.reduce((n,a)=>n+a.elapsed,0)/60000)+' 分';
+  $('vocabLearnUnique').textContent=wordStats.size+' / '+VOCAB_BANK.length;
+  $('vocabMastered').textContent=[...wordStats.values()].filter(x=>x.right&&x.streak>=3).length;
+  const types=$('learnTypes');types.replaceChildren();
+  for(const [type,{right,total}] of Object.entries(typeStats)){
+    const row=addText(types,'div','','recordTypeRow'),name=TYPES[type].name, value=total?right/total*100:0;
+    addText(row,'span',name);addText(row,'span',total?value.toFixed(1)+'% · '+right+'/'+total:'尚無紀錄');
+    const bar=addText(row,'progress','');bar.max=100;bar.value=value;bar.setAttribute('aria-label',name+(total?'答對率':'尚無紀錄'));
+  }
+  recordWrongRows=[...latest.values()].filter(q=>!q.right).sort((a,b)=>a.id-b.id);
+  $('wrongCount').textContent=recordWrongRows.length+' 題待複習';
+  if($('recordWrongPanel').open)renderRecordWrong();
+  renderRecordHistory();
+}
+function pickRecordFilter(kind,focusHistory=false){
+  recordFilter=kind;recordLimit=recordChunk;renderRecordHistory();
+  if(focusHistory){$('recordHistoryTitle').scrollIntoView({block:'start',behavior:'instant'});$('recordHistoryTitle').focus({preventScroll:true})}
+}
+function renderRecordHistory(){
+  const root=$('recordHistoryList'),rows=recordFilter==='all'?recordRows:recordRows.filter(a=>a.kind===recordFilter);
+  root.replaceChildren();$('recordHistoryCount').textContent=rows.length+' 筆';
+  $('recordFilterAll').setAttribute('aria-pressed',String(recordFilter==='all'));
+  for(const [kind,controls] of Object.entries(recordKinds))for(const id of [controls.summary,controls.filter])$(id).setAttribute('aria-pressed',String(recordFilter===kind));
+  if(!rows.length){
+    const card=addText(root,'div','','recordEmpty');addText(card,'span','∅','recordEmptyMark').setAttribute('aria-hidden','true');
+    addText(card,'h4',recordFilter==='all'?'還沒有交卷紀錄':'還沒有'+recordKinds[recordFilter].short+'成績');
+    addText(card,'p','完成一回練習並交卷，成績和解析就會出現在這裡。');
+    const kind=recordFilter,button=addText(card,'button',kind==='all'?'到主大廳選練習 →':'前往'+recordKinds[kind].name+' →','btn secondary');
+    button.type='button';button.onclick=()=>kind==='all'?home():openStudyMode(kind);
+  }
+  for(const item of rows.slice(0,recordLimit)){
+    const category=recordKinds[item.kind],row=addText(root,'article','','recordRow '+category.color);
+    const copy=addText(row,'div','','recordRowCopy'),topic=addText(copy,'div','','recordRowTop');
+    addText(topic,'span',category.short,'recordKind');addText(topic,'strong',item.title,'recordRowTitle');
+    const meta=addText(copy,'p','','recordRowMeta'),when=new Date(item.at);
+    if(Number.isFinite(when.getTime())){const time=addText(meta,'time',recordDate.format(when));time.dateTime=when.toISOString()}
+    addText(meta,'span','答對 '+item.right+' / '+item.total+' 題');
+    if(item.details.length)addText(meta,'span',item.details.join(' · '));
+    const points=addText(row,'div','','recordRowScore');addText(points,'strong',item.score);addText(points,'span','分');
+    const action=addText(row,'button',item.kind==='vocabulary'?'查看答案':'查看解析','btn secondary recordReview');
+    action.type='button';action.setAttribute('aria-label','查看'+category.short+' '+item.title+'的'+(item.kind==='vocabulary'?'答案':'解析'));
+    action.onclick=item.action;
+  }
+  const more=$('recordMore'),rest=Math.max(0,rows.length-recordLimit);more.classList.toggle('hidden',rest===0);
+  more.textContent=rest?'顯示更多（還有 '+rest+' 筆）':'顯示更多';
+}
+function appendRecordWrong(start){
+  const root=$('wrongList'),end=Math.min(start+recordChunk,recordWrongRows.length);
+  for(const {id,revision} of recordWrongRows.slice(start,end)){
+    const q=listeningQuestion(id,revision),box=addText(root,'details','','wrongEntry');
+    addText(box,'summary','題庫 #'+id+' · '+TYPES[q.type].name);
+    const audio=addText(box,'audio','');audio.controls=true;audio.preload='none';audio.src=listeningAudio(q);
+    audio.onplay=()=>document.querySelectorAll('audio').forEach(other=>{if(other!==audio)other.pause()});
+    box.ontoggle=()=>{if(!box.open)audio.pause()};
+    addText(box,'p',q.segments.map(s=>s.text).join('\n'),'transcript').lang='en';
+    if(q.type==='picture'){const options=addText(box,'div','');renderOptions(options,q,q.answer,true)}
+    addText(box,'p','正確答案：'+'ABC'[q.answer]+'. '+optionLabel(q,q.answer),'answerline correct');addText(box,'p',q.explanation,'explanation');
+  }
+  const more=$('recordWrongMore');
+  more.classList.toggle('hidden',end>=recordWrongRows.length);
+  more.onclick=()=>{appendRecordWrong(end);root.children[end]?.firstElementChild?.focus()};
+}
+function renderRecordWrong(){
+  const root=$('wrongList');root.replaceChildren();
+  if(recordWrongRows.length)appendRecordWrong(0);
+  else{addText(root,'p','目前沒有待複習的錯題。','recordSmall');$('recordWrongMore').classList.add('hidden')}
+}
+function initLearningUI(){
+  $('recordFilterAll').onclick=()=>pickRecordFilter('all');
+  for(const [kind,{filter,summary}] of Object.entries(recordKinds)){
+    $(filter).onclick=()=>pickRecordFilter(kind);$(summary).onclick=()=>pickRecordFilter(kind,true);
+  }
+  $('recordMore').onclick=()=>{const at=recordLimit;recordLimit+=recordChunk;renderRecordHistory();$('recordHistoryList').children[at]?.lastElementChild?.focus()};
+  $('recordWrongPanel').ontoggle=()=>{
+    if($('recordWrongPanel').open){if(!$('learning').classList.contains('hidden'))renderRecordWrong()}
+    else $('wrongList').querySelectorAll('audio').forEach(a=>a.pause());
+  };
+}
+
+function openAttempt(a){if(state&&!state.submitted){confirmBox('查看過去成績？','目前的測驗進度會保留；查看後可回主大廳繼續。',()=>displayAttempt(a));return}displayAttempt(a)}
 let parkedState=null;
 function displayAttempt(a){if(!parkedState)parkedState=state;state={version:3,...(a.bankRevision===BANK_REVISION?{bankRevision:BANK_REVISION}:{}),runId:a.runId,mode:a.mode,difficulty:a.difficulty,ids:a.ids,answers:a.answers,flags:a.ids.map(()=>false),plays:a.ids.map(()=>0),index:0,elapsed:a.elapsed,started:a.started,deadline:0,submitted:true,reason:'history',finishedAt:a.finished,recordId:a.id};showResult()}
-function restoreParked(){if(parkedState){state=parkedState;parkedState=null}}
+function storedListeningProgress(){return parkedState||(state?.reason==='history'?null:state)}
+function restoreParked(){if(parkedState||state?.reason==='history'){state=parkedState;parkedState=null}}
 let authBusy=false,authAction='',logoutBusy=false,googleLinkBusy=false;
 function clearAuthSecrets(){for(const id of ['authPassword','authConfirmPassword']){$(id).value='';$(id).type='password'}$('authShowPassword').textContent='顯示';$('authShowPassword').setAttribute('aria-pressed','false');$('authShowPassword').setAttribute('aria-label','顯示密碼');$('authConfirmPassword').removeAttribute('aria-invalid');$('authConfirmHint').textContent='';$('authConfirmHint').classList.add('hidden')}
 function accountNotice(id,text,kind='error'){$(id).textContent=text;$(id).dataset.kind=kind}
@@ -922,7 +1213,7 @@ function setAuthBusy(value,action=authAction||'email'){authBusy=value;authAction
 }
 function openAccount(mode='login'){if(authBusy||googleLinkBusy||logoutBusy)return;stopSound();clearAuthSecrets();authMode=mode==='register'?'register':'login';renderAuthMode();if(!$('accountDialog').open)$('accountDialog').showModal()}
 function changeAuthMode(mode){if(authBusy||authMode===mode)return;clearAuthSecrets();authMode=mode;renderAuthMode()}
-function renderAuthMode(){const reg=authMode==='register';$('accountDialog').dataset.mode=authMode;$('authTitle').textContent=reg?'註冊新帳號':'登入帳號';$('authEyebrow').textContent=reg?'YOUR JOURNEY STARTS HERE':'WELCOME BACK';$('authSubtitle').textContent=reg?'使用 Google 或 Email 建立帳號，保存每一次練習。':'使用 Google 或原本的 Email 帳號，接續你的學習紀錄。';$('authStoryTitle').innerHTML=reg?'從今天開始，<br>累積你的進步。':'每一次練習，<br>都值得被記住。';$('authStoryText').innerHTML=reg?'用一個帳號，<br>收藏聽力與單字的進步。':'回到你的學習空間，<br>接續上一次的進步。';for(const id of ['registerName','authConfirmWrap','authPasswordHint'])$(id).classList.toggle('hidden',!reg);$('authName').disabled=!reg;$('authConfirmPassword').disabled=!reg;$('authConfirmPassword').required=reg;$('authPassword').minLength=reg?8:1;$('authPassword').autocomplete=reg?'new-password':'current-password';$('authPassword').placeholder=reg?'設定至少 8 個字元的密碼':'輸入你的密碼';$('authLoginTab').setAttribute('aria-pressed',String(!reg));$('authRegisterTab').setAttribute('aria-pressed',String(reg));$('resetPassword').classList.toggle('hidden',reg);$('authToggleLead').textContent=reg?'已經有帳號？':'第一次來？';$('authToggle').textContent=reg?'前往登入':'建立新帳號';$('authForm').classList.remove('hidden');$('authSetup').classList.toggle('hidden',!!cloud);$('authSetup').textContent=location.protocol==='file:'?'本機預覽可能無法連接帳號服務；請用網站網址登入。訪客練習仍可使用。':'帳號服務尚未連接，請稍候或重新整理頁面；你也可以先用訪客模式。';$('authGoogleHint').textContent=location.protocol==='file:'?'請開啟正式網站使用 Google 註冊或登入。':'已有帳號？先用原本的方式登入，再到「學習資料」連結 Google。';
+function renderAuthMode(){const reg=authMode==='register';$('accountDialog').dataset.mode=authMode;$('authTitle').textContent=reg?'註冊新帳號':'登入帳號';$('authEyebrow').textContent=reg?'YOUR JOURNEY STARTS HERE':'WELCOME BACK';$('authSubtitle').textContent=reg?'使用 Google 或 Email 建立帳號，保存每一次練習。':'使用 Google 或原本的 Email 帳號，接續你的學習紀錄。';$('authStoryTitle').innerHTML=reg?'從今天開始，<br>累積你的進步。':'每一次練習，<br>都值得被記住。';$('authStoryText').innerHTML=reg?'用一個帳號，<br>收藏聽力與單字的進步。':'回到你的學習空間，<br>接續上一次的進步。';for(const id of ['registerName','authConfirmWrap','authPasswordHint'])$(id).classList.toggle('hidden',!reg);$('authName').disabled=!reg;$('authConfirmPassword').disabled=!reg;$('authConfirmPassword').required=reg;$('authPassword').minLength=reg?8:1;$('authPassword').autocomplete=reg?'new-password':'current-password';$('authPassword').placeholder=reg?'設定至少 8 個字元的密碼':'輸入你的密碼';$('authLoginTab').setAttribute('aria-pressed',String(!reg));$('authRegisterTab').setAttribute('aria-pressed',String(reg));$('resetPassword').classList.toggle('hidden',reg);$('authToggleLead').textContent=reg?'已經有帳號？':'第一次來？';$('authToggle').textContent=reg?'前往登入':'建立新帳號';$('authForm').classList.remove('hidden');$('authSetup').classList.toggle('hidden',!!cloud);$('authSetup').textContent=location.protocol==='file:'?'本機預覽可能無法連接帳號服務；請用網站網址登入。訪客練習仍可使用。':'帳號服務尚未連接，請稍候或重新整理頁面；你也可以先用訪客模式。';$('authGoogleHint').textContent=location.protocol==='file:'?'請開啟正式網站使用 Google 註冊或登入。':'已有帳號？先用原本的方式登入，再到「學習紀錄 → 帳號與備份」連結 Google。';
  setAuthMessage('');accountNotice('googleAuthMessage','');setAuthBusy(authBusy);
 }
 function authError(e){return {'auth/email-already-in-use':'這個 Email 已註冊，請切換到「登入」，或使用忘記密碼。','auth/invalid-email':'請輸入有效的 Email 地址。','auth/invalid-credential':'Email 或密碼不正確，請再確認一次。','auth/user-not-found':'Email 或密碼不正確，請再確認一次。','auth/wrong-password':'Email 或密碼不正確，請再確認一次。','auth/weak-password':'密碼強度不足，請使用至少 8 個字元，並依提示調整。','auth/password-does-not-meet-requirements':'密碼不符合帳號服務要求，請加入大小寫字母、數字或符號後重試。','auth/network-request-failed':'網路連線失敗，你輸入的 Email 仍保留，請稍後再試。','auth/too-many-requests':'嘗試次數過多，請稍後再試。','auth/operation-not-allowed':'帳號服務尚未啟用，請稍後再試。','auth/unauthorized-domain':'這個網站網址尚未啟用帳號服務。','auth/user-disabled':'這個帳號目前已停用，請聯絡網站管理者。'}[e.code]||(authMode==='register'?'目前無法建立帳號，請稍後再試。':'目前無法登入，請稍後再試。')}
@@ -950,7 +1241,7 @@ function renderGoogleAccount(){
 function googleAuthError(error,link=false){
  const code=error?.code;
  if(code==='auth/account-exists-with-different-credential'||code==='auth/email-already-in-use'){
-  return link?'這個 Google 帳號的 Email 已屬於另一個帳號。請選擇尚未連結的 Google 帳號。':'這個 Email 已用其他方式註冊。請先用原本的方式登入，再到「學習資料」連結 Google。';
+  return link?'這個 Google 帳號的 Email 已屬於另一個帳號。請選擇尚未連結的 Google 帳號。':'這個 Email 已用其他方式註冊。請先用原本的方式登入，再到「學習紀錄 → 帳號與備份」連結 Google。';
  }
  return ({
   'auth/popup-closed-by-user':'已關閉 Google 視窗，可以再試一次。',
@@ -1029,18 +1320,18 @@ async function loadCloudProfile(epoch=profileEpoch){if(!currentUser||!cloud)retu
  }
  persistLearning();cloudReady=true;if(state?.submitted)recordAttempt();await loadVocabCloud(epoch);if(epoch!==profileEpoch)return;if(!$('lobby').classList.contains('hidden'))renderLobby();else if(!$('home').classList.contains('hidden'))refreshListeningHome();renderLearning();await flushCloud();
  }catch(e){if(epoch===profileEpoch){cloudReady=false;setSync('雲端讀取失敗，已保留本機資料。連線恢復後按「同步資料」重試。')}}}
-async function flushCloud(){saveVocab(false);if(!currentUser||!cloud||!cloudReady)return;if(cloudBusy){cloudAgain=true;return}cloudBusy=true;const epoch=profileEpoch,user=currentUser,localKey=KEY,snapshot=parkedState||state;const run=snapshot?JSON.parse(JSON.stringify(snapshot)):null;const records=[...learning.attempts];setSync('正在同步學習資料…');try{
+async function flushCloud(){saveVocab(false);if(!currentUser||!cloud||!cloudReady)return;if(cloudBusy){cloudAgain=true;return}cloudBusy=true;const epoch=profileEpoch,user=currentUser,localKey=KEY,snapshot=storedListeningProgress();const run=snapshot?JSON.parse(JSON.stringify(snapshot)):null;const records=[...learning.attempts];setSync('正在同步學習資料…');try{
  for(const a of records){if(epoch!==profileEpoch)break;if(!cloud.known.has(a.id)){await cloud.setDoc(cloud.doc(cloud.db,'users',user.uid,'attempts',a.id),a);if(epoch===profileEpoch)cloud.known.add(a.id)}}
  if(run&&epoch===profileEpoch){run.runId=run.runId||makeId();await cloud.setDoc(cloud.doc(cloud.db,'users',user.uid,'runs',run.runId+'_'+DEVICE_ID),{payload:JSON.stringify(run),updatedAt:cloud.serverTimestamp()});}
  await flushVocabCloud(epoch);
  if(epoch===profileEpoch)setSync((vocabCloudReady?'兩種模式已同步至雲端 · ':'英聽已同步；單字保留在本機 · ')+new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}));
  }catch(e){if(epoch===profileEpoch)setSync('尚未同步：資料仍保存在本機，請檢查網路後重試。');}finally{cloudBusy=false;if(cloudAgain){cloudAgain=false;scheduleCloud()}}}
-function exportLearning(){saveVocab(false);const data={app:'listen-lab',version:1,bankVersion:300,exportedAt:new Date().toISOString(),vocabulary:vocabBackup(),attempts:learning.attempts,seen:learning.seen,progress:parkedState||state};downloadFile('ListenLab_學習資料_'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify(data,null,2),'application/json');}
+function exportLearning(){saveVocab(false);const data={app:'listen-lab',version:1,bankVersion:300,exportedAt:new Date().toISOString(),vocabulary:vocabBackup(),attempts:learning.attempts,seen:learning.seen,progress:storedListeningProgress()};downloadFile('ListenLab_學習資料_'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify(data,null,2),'application/json');}
 function downloadFile(name,data,type){const u=URL.createObjectURL(new Blob([data],{type})),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
 async function importLearning(file){if(!file)return;try{if(file.size>15*1024*1024)throw Error('large');const x=JSON.parse(await file.text());if(x.app!=='listen-lab'||x.version!==1||!Array.isArray(x.attempts)||x.attempts.some(a=>!cleanAttempt(a))||(x.progress&&!validState(x.progress))||!validVocabBackup(x.vocabulary))throw Error('invalid');const incoming=cleanLearning(x);confirmBox('匯入學習資料？','會合併歷次成績並去除重複紀錄；目前未完成的測驗會保留。',()=>{learning=cleanLearning({attempts:[...learning.attempts,...incoming.attempts],seen:{...learning.seen,...incoming.seen}});if(!state&&x.progress){state=x.progress;save()}importVocabBackup(x.vocabulary);persistLearning();scheduleCloud();renderLearning();$('backupStatus').textContent='已匯入 '+incoming.attempts.length+' 筆紀錄。'});}catch{$('backupStatus').textContent='無法匯入，請選擇由本程式匯出的學習資料 JSON。'}$('importFile').value='';}
 function importGuest(){const guest=readLearning('listen-lab-cap-v3:guest');confirmBox('把訪客成績加入這個帳號？','將合併此瀏覽器的英聽及單字訪客成績，原本的訪客資料仍保留。',()=>{learning=cleanLearning({attempts:[...learning.attempts,...guest.attempts],seen:{...guest.seen,...learning.seen}});importVocabGuest();persistLearning();scheduleCloud();renderLearning()})}
 function bootLearning(){KEY='listen-lab-cap-v3:guest';if(!safeGet(KEY)){const old=safeGet(LEGACY_KEY);try{const x=JSON.parse(old);if(validState(x)){x.runId=x.runId||makeId();safePut(KEY,JSON.stringify(x))}}catch{}}learning=readLearning();state=load();if(state?.submitted)recordAttempt();chooseMode('mock');home(false);renderLearning();initCloud();}
-$('lobbyHomeNav').onclick=home;$('brandHome').onclick=home;$('lobbyBack').onclick=home;$('accountBtn').onclick=()=>openAccount('login');$('learningBtn').onclick=showLearning;$('learningHome').onclick=home;$('accountClose').onclick=()=>{if(!authBusy)$('accountDialog').close()};$('authToggle').onclick=()=>changeAuthMode(authMode==='login'?'register':'login');$('authForm').onsubmit=authenticate;$('resetPassword').onclick=resetPassword;$('exportData').onclick=exportLearning;$('importData').onclick=()=>$('importFile').click();$('importFile').onchange=e=>importLearning(e.target.files[0]);$('importGuestBtn').onclick=importGuest;
+$('lobbyHomeNav').onclick=home;$('brandHome').onclick=home;$('lobbyBack').onclick=home;$('accountBtn').onclick=()=>openAccount('login');$('learningBtn').onclick=()=>showLearning();$('learningHome').onclick=home;$('accountClose').onclick=()=>{if(!authBusy)$('accountDialog').close()};$('authToggle').onclick=()=>changeAuthMode(authMode==='login'?'register':'login');$('authForm').onsubmit=authenticate;$('resetPassword').onclick=resetPassword;$('exportData').onclick=exportLearning;$('importData').onclick=()=>$('importFile').click();$('importFile').onchange=e=>importLearning(e.target.files[0]);$('importGuestBtn').onclick=importGuest;
 $('syncBtn').onclick=()=>{if(!currentUser){setSync('訪客模式可匯出備份；登入後才能同步雲端。');return}loadCloudProfile()};
 $('logoutBtn').onclick=requestLogout;$('navLogoutBtn').onclick=requestLogout;
 window.addEventListener('online',()=>{if(currentUser)cloudReady?flushCloud():loadCloudProfile()});
@@ -1099,10 +1390,10 @@ function cleanVocabAttempt(x){
 }
 function cleanVocabLearning(x){const seen=new Map();for(const r of Array.isArray(x?.attempts)?x.attempts:[]){const a=cleanVocabAttempt(r);if(a)seen.set(a.id,a)}return{attempts:[...seen.values()].sort((a,b)=>b.finished-a.finished||a.id.localeCompare(b.id))}}
 function vocabCheckpoint(){if(vocabState&&!vocabState.submitted&&vocabClock!==null){vocabState.elapsed+=Math.max(0,Date.now()-vocabClock);vocabClock=Date.now()}}
-function saveVocab(schedule=true){vocabCheckpoint();let ok=true;if(vocabState){vocabState.updatedAt=Date.now();ok=safePut(vocabKey(),JSON.stringify(vocabState))}if($('vocabSaveStatus'))$('vocabSaveStatus').textContent=ok?'單字進度已保存於此瀏覽器。':'無法保存，請到學習資料匯出備份。';if(schedule)scheduleCloud();return ok}
+function saveVocab(schedule=true){vocabCheckpoint();let ok=true;if(vocabState){vocabState.updatedAt=Date.now();ok=safePut(vocabKey(),JSON.stringify(vocabState))}if($('vocabSaveStatus'))$('vocabSaveStatus').textContent=ok?'單字進度已保存於此瀏覽器。':'無法保存，請到學習紀錄匯出備份。';if(schedule)scheduleCloud();return ok}
 function pauseVocab(){if(vocabClock===null)return;saveVocab();vocabClock=null}
 function persistVocabLearning(){if(!safePut(vocabLearningKey(),JSON.stringify(vocabLearning)))setSync('瀏覽器儲存空間不足，請到學習資料匯出備份。')}
-function resetVocabProfile(){vocabClock=null;vocabResultRecord=null;vocabCloudReady=false;vocabDifficulty=readVocabDifficulty();try{const x=JSON.parse(safeGet(vocabKey()));vocabState=validVocabState(x)?x:null}catch{vocabState=null}try{vocabLearning=cleanVocabLearning(JSON.parse(safeGet(vocabLearningKey())))}catch{vocabLearning={attempts:[]}}if(vocabState?.submitted)recordVocabAttempt();renderVocabHome();renderVocabLearning()}
+function resetVocabProfile(){vocabClock=null;vocabResultRecord=null;vocabCloudReady=false;vocabDifficulty=readVocabDifficulty();try{const x=JSON.parse(safeGet(vocabKey()));vocabState=validVocabState(x)?x:null}catch{vocabState=null}try{vocabLearning=cleanVocabLearning(JSON.parse(safeGet(vocabLearningKey())))}catch{vocabLearning={attempts:[]}}if(vocabState?.submitted)recordVocabAttempt();renderVocabHome()}
 function vocabStats(){const words=new Map();for(const a of [...vocabLearning.attempts].reverse()){a.questions.forEach((q,i)=>{if(a.answers[i]===null)return;const right=a.answers[i]===q.answer,day=new Date(a.finished).toISOString().slice(0,10),old=words.get(q.id)||{id:q.id,streak:0,day:'',last:0,right:false};if(!right){old.streak=0;old.day=day}else if(old.day!==day){old.streak++;old.day=day}old.right=right;old.last=a.finished;old.due=a.finished+(right?[1,3,7,14,30][Math.min(Math.max(old.streak-1,0),4)]:0)*86400000;words.set(q.id,old)})}return words}
 function chooseVocabCards(mode=vocabDifficulty){
   const config=VOCAB_DIFFICULTIES[isVocabDifficulty(mode)?mode:'random'],stats=vocabStats(),now=Date.now();
@@ -1152,17 +1443,16 @@ function vocabResultData(a){const correct=a.questions.filter((q,i)=>q.answer===a
 function vocabTime(ms){const s=Math.floor(ms/1000);return Math.floor(s/60)+'分'+String(s%60).padStart(2,'0')+'秒'}
 function showVocabResult(a){pauseVocab();vocabResultRecord=a;switchView('vocabResult');const r=vocabResultData(a);$('vocabResultScore').textContent=r.score+'%';$('vocabCorrect').textContent=r.correct+' / '+r.total;$('vocabBlank').textContent=r.blank;$('vocabDuration').textContent=vocabTime(a.elapsed);$('vocabLearned').textContent=vocabStats().size;$('vocabResultTitle').textContent='把這 '+r.total+' 題，變成自己的字。';$('vocabResultMode').textContent=vocabRunLabel(a)+'模式 · '+r.total+' 題';$('vocabReviewAll').textContent='全部 '+r.total+' 題';$('vocabFeedback').textContent=r.correct/r.total>=.9?'很有把握，繼續把新字變熟悉。':r.correct/r.total>=.6?'已經認得不少，再把錯題看一次。':'從這 '+r.total+' 個字開始，慢慢累積就好。';$('vocabReviewFilter').value='wrong';renderVocabReview()}
 function renderVocabReview(){const a=vocabResultRecord;if(!a)return;const root=$('vocabReviewList');root.replaceChildren();a.questions.forEach((q,i)=>{const answer=a.answers[i],right=answer===q.answer;if($('vocabReviewFilter').value==='wrong'&&right)return;const card=document.createElement('article');card.className='reviewitem';addText(card,'span','第 '+(i+1)+' 題 · '+(right?'答對':answer===null?'未作答':'答錯'),'badge');addText(card,'h3',q.word,'vocabResultWord').lang='en';q.options.forEach((option,j)=>{const row=document.createElement('div');row.className='vocabMiniChoice'+(j===q.answer?' correct':j===answer?' wrong':'');addText(row,'b','ABCD'[j]);addText(row,'span',option+(j===q.answer?' ✓ 正確答案':j===answer?' · 你的答案':''));card.append(row)});addText(card,'p','正確字義：'+q.meaning,'explanation');root.append(card)});if(!root.children.length)addText(root,'div','全部答對！可以切換「全部 '+a.questions.length+' 題」再複習一次。','empty')}
-function renderVocabLearning(){const all=vocabLearning.attempts,stats=vocabStats(),total=all.reduce((n,a)=>n+a.questions.length,0);$('vocabLearnRuns').textContent=all.length;$('vocabLearnUnique').textContent=stats.size+' / '+VOCAB_BANK.length;$('vocabLearnAccuracy').textContent=total?(all.reduce((n,a)=>n+a.correct,0)/total*100).toFixed(1)+'%':'—';$('vocabMastered').textContent=[...stats.values()].filter(x=>x.right&&x.streak>=3).length;const root=$('vocabHistory');root.replaceChildren();for(const a of all){const row=document.createElement('article');row.className='historyRow';const content=document.createElement('div');addText(content,'strong',vocabRunLabel(a)+' · 單字 '+a.questions.length+' 題 · '+a.correct+' 題答對 · '+a.score+' 分');addText(content,'p',new Date(a.finished).toLocaleString('zh-TW')+' · '+vocabTime(a.elapsed),'small');row.append(content);const b=addText(row,'button','查看答案','btn secondary');b.onclick=()=>showVocabResult(a);root.append(row)}if(!all.length)addText(root,'p','還沒有單字成績，完成第一回測驗後就會出現在這裡。','small')}
-async function loadVocabCloud(epoch){vocabCloudReady=false;if(!currentUser||!cloud)return;const uid=currentUser.uid;try{const [attempts,runs]=await Promise.all([cloud.getDocs(cloud.collection(cloud.db,'users',uid,'vocabAttempts')),cloud.getDocs(cloud.query(cloud.collection(cloud.db,'users',uid,'vocabRuns'),cloud.orderBy('updatedAt','desc'),cloud.limit(10)))]);if(epoch!==profileEpoch||uid!==currentUser?.uid)return;const remote=[];attempts.forEach(doc=>{const a=cleanVocabAttempt(doc.data());if(a){remote.push(a);cloud.knownVocab.add(a.id)}});vocabLearning=cleanVocabLearning({attempts:[...remote,...vocabLearning.attempts]});const candidates=[];runs.forEach(doc=>{try{const x=JSON.parse(doc.data().payload);if(validVocabState(x))candidates.push(x)}catch{}});candidates.sort((a,b)=>b.updatedAt-a.updatedAt);if($('vocabExam').classList.contains('hidden')&&candidates[0]&&(!vocabState||candidates[0].updatedAt>vocabState.updatedAt)){vocabState=candidates[0];safePut(vocabKey(),JSON.stringify(vocabState))}if(vocabState?.submitted)recordVocabAttempt();persistVocabLearning();vocabCloudReady=true;renderVocabHome();renderVocabLearning()}catch{if(epoch===profileEpoch){vocabCloudReady=false;setSync('英聽資料可同步；單字雲端尚未連線，單字紀錄已保留在本機。')}}}
+async function loadVocabCloud(epoch){vocabCloudReady=false;if(!currentUser||!cloud)return;const uid=currentUser.uid;try{const [attempts,runs]=await Promise.all([cloud.getDocs(cloud.collection(cloud.db,'users',uid,'vocabAttempts')),cloud.getDocs(cloud.query(cloud.collection(cloud.db,'users',uid,'vocabRuns'),cloud.orderBy('updatedAt','desc'),cloud.limit(10)))]);if(epoch!==profileEpoch||uid!==currentUser?.uid)return;const remote=[];attempts.forEach(doc=>{const a=cleanVocabAttempt(doc.data());if(a){remote.push(a);cloud.knownVocab.add(a.id)}});vocabLearning=cleanVocabLearning({attempts:[...remote,...vocabLearning.attempts]});const candidates=[];runs.forEach(doc=>{try{const x=JSON.parse(doc.data().payload);if(validVocabState(x))candidates.push(x)}catch{}});candidates.sort((a,b)=>b.updatedAt-a.updatedAt);if($('vocabExam').classList.contains('hidden')&&candidates[0]&&(!vocabState||candidates[0].updatedAt>vocabState.updatedAt)){vocabState=candidates[0];safePut(vocabKey(),JSON.stringify(vocabState))}if(vocabState?.submitted)recordVocabAttempt();persistVocabLearning();vocabCloudReady=true;renderVocabHome()}catch{if(epoch===profileEpoch){vocabCloudReady=false;setSync('英聽資料可同步；單字雲端尚未連線，單字紀錄已保留在本機。')}}}
 async function flushVocabCloud(epoch){if(!vocabCloudReady||!currentUser||!cloud)return;const uid=currentUser.uid,records=[...vocabLearning.attempts],run=vocabState?JSON.parse(JSON.stringify(vocabState)):null;for(const a of records){if(epoch!==profileEpoch||uid!==currentUser?.uid)return;if(!cloud.knownVocab.has(a.id)){await cloud.setDoc(cloud.doc(cloud.db,'users',uid,'vocabAttempts',a.id),a);if(epoch===profileEpoch)cloud.knownVocab.add(a.id)}}if(run&&epoch===profileEpoch)await cloud.setDoc(cloud.doc(cloud.db,'users',uid,'vocabRuns',run.runId+'_'+DEVICE_ID),{payload:JSON.stringify(run),updatedAt:cloud.serverTimestamp()})}
 function vocabBackup(){return{version:1,attempts:vocabLearning.attempts,progress:vocabState}}
 function validVocabBackup(x){return !x||(x.version===1&&Array.isArray(x.attempts)&&x.attempts.every(a=>!!cleanVocabAttempt(a))&&(!x.progress||validVocabState(x.progress)))}
-function importVocabBackup(x){if(!x)return;vocabLearning=cleanVocabLearning({attempts:[...vocabLearning.attempts,...x.attempts]});if(!vocabState&&x.progress){vocabState=x.progress;saveVocab()}persistVocabLearning();renderVocabHome();renderVocabLearning()}
-function importVocabGuest(){try{const g=cleanVocabLearning(JSON.parse(safeGet('listen-lab-cap-v3:guest:vocab-learning-v1')));vocabLearning=cleanVocabLearning({attempts:[...vocabLearning.attempts,...g.attempts]});persistVocabLearning();renderVocabHome();renderVocabLearning()}catch{}}
+function importVocabBackup(x){if(!x)return;vocabLearning=cleanVocabLearning({attempts:[...vocabLearning.attempts,...x.attempts]});if(!vocabState&&x.progress){vocabState=x.progress;saveVocab()}persistVocabLearning();renderVocabHome()}
+function importVocabGuest(){try{const g=cleanVocabLearning(JSON.parse(safeGet('listen-lab-cap-v3:guest:vocab-learning-v1')));vocabLearning=cleanVocabLearning({attempts:[...vocabLearning.attempts,...g.attempts]});persistVocabLearning();renderVocabHome()}catch{}}
 for(const mode of Object.keys(VOCAB_DIFFICULTIES)){$('vocabDifficulty-'+mode).onchange=()=>{if($('vocabDifficulty-'+mode).checked)setVocabDifficulty(mode)}}
 for(const [id,mode] of [['studyListening','listening'],['studyVocabulary','vocabulary'],['studyReading','reading'],['lobbyListen','listening'],['lobbyVocab','vocabulary'],['lobbyRead','reading']])$(id).onclick=()=>openStudyMode(mode);
 $('lobbyPast').onclick=()=>openPast('reading');
-$('vocabStartBtn').onclick=startVocab;$('vocabResumeBtn').onclick=resumeVocab;$('vocabSaveHome').onclick=home;$('vocabPrev').onclick=()=>navigateVocab(vocabState.index-1);$('vocabNext').onclick=()=>navigateVocab(vocabState.index+1);$('vocabFlag').onclick=()=>{vocabState.flags[vocabState.index]=!vocabState.flags[vocabState.index];saveVocab();renderVocabQuestion()};$('vocabSubmit').onclick=()=>{const n=vocabState.answers.filter(x=>x===null).length;confirmBox('交卷這回單字測驗？',n?'還有 '+n+' 題未作答，未答以 0 分計算。交卷後會顯示所有字義與答案。':'已完成 '+vocabState.questions.length+' 題，交卷後查看成績及逐題答案。',finishVocab)};$('vocabAnother').onclick=startVocab;$('vocabResultHome').onclick=home;$('vocabResultLearning').onclick=showLearning;$('vocabReviewFilter').onchange=renderVocabReview;
+$('vocabStartBtn').onclick=startVocab;$('vocabResumeBtn').onclick=resumeVocab;$('vocabSaveHome').onclick=home;$('vocabPrev').onclick=()=>navigateVocab(vocabState.index-1);$('vocabNext').onclick=()=>navigateVocab(vocabState.index+1);$('vocabFlag').onclick=()=>{vocabState.flags[vocabState.index]=!vocabState.flags[vocabState.index];saveVocab();renderVocabQuestion()};$('vocabSubmit').onclick=()=>{const n=vocabState.answers.filter(x=>x===null).length;confirmBox('交卷這回單字測驗？',n?'還有 '+n+' 題未作答，未答以 0 分計算。交卷後會顯示所有字義與答案。':'已完成 '+vocabState.questions.length+' 題，交卷後查看成績及逐題答案。',finishVocab)};$('vocabAnother').onclick=startVocab;$('vocabResultHome').onclick=home;$('vocabResultLearning').onclick=()=>showLearning('vocabulary');$('vocabReviewFilter').onchange=renderVocabReview;
 $('vocabDownload').onclick=()=>{const a=vocabResultRecord;if(!a)return;const r=vocabResultData(a),lines=['會考準備王｜單字成績單',new Date(a.finished||Date.now()).toLocaleString('zh-TW'),'難度：'+vocabRunLabel(a)+' · '+a.questions.length+' 題','答對 '+r.correct+' / '+r.total+' 題 · '+r.score+' 分','作答時間 '+vocabTime(a.elapsed),''];a.questions.forEach((q,i)=>lines.push((i+1)+'. '+q.word,'你的答案：'+(a.answers[i]===null?'未作答':'ABCD'[a.answers[i]]+' '+q.options[a.answers[i]]),'正確答案：'+'ABCD'[q.answer]+' '+q.meaning,''));downloadFile('會考準備王_單字成績單.txt','\ufeff'+lines.join('\n'),'text/plain;charset=utf-8')};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseVocab();else if(vocabState&&!vocabState.submitted&&!$('vocabExam').classList.contains('hidden'))vocabClock=Date.now()});window.addEventListener('pagehide',()=>saveVocab(false));
 
@@ -1722,19 +2012,6 @@ function submitReading(){
     const saved=persistReading(rec);
     readingReview=true;renderReadingQuestion();focusReading('readResultTitle');
     if(!saved)$('readSave').textContent='成績已顯示，但目前無法儲存到此瀏覽器。';
-    renderReadingLearning();
-  });
-}
-function renderReadingLearning(){
-  const rec=readReadingRecord(),recent=$('readHistory');
-  recent.replaceChildren();
-  if(!rec.attempts.length){addText(recent,'p','目前還沒有原創閱讀紀錄。','small');return}
-  rec.attempts.slice(0,8).forEach(attempt=>{
-    const s=summarizeReading(attempt), line=addText(recent,'div','','historyRow');
-    const info=addText(line,'div','');
-    addText(info,'strong',s.score+' 分／100 分 · '+readingTitle(attempt));
-    addText(info,'p',new Date(attempt.at).toLocaleDateString('zh-TW')+' · 答對 '+s.correct+' / '+s.total+' 題','small');
-    const b=addText(line,'button','查看解析','btn secondary');b.type='button';b.onclick=()=>openReading('review',attempt.id);
   });
 }
 $('readStart').onclick=startReading;
@@ -1745,6 +2022,7 @@ $('readLeave').onclick=home;
 $('readPrev').onclick=()=>{if(readingState)goReading(readingState.cursor-1)};
 $('readNext').onclick=()=>{if(readingState)goReading(readingState.cursor+1)};
 $('readSubmit').onclick=submitReading;
+$('readResultLearning').onclick=()=>showLearning('reading');
 $('readWrong').onclick=()=>{
   if(!inReadingExam()||!readingReview)return;
   const entries=flattenReading(readingState),n=entries.length;
@@ -1757,7 +2035,7 @@ $('readToPassage').onclick=()=>focusReading('readPassageTitle');
 $('readToQuestion').onclick=()=>focusReading('readQuestionTitle');
 
 resetVocabProfile();setStudyMode('listening');
-bootLearning();
+initLearningUI();bootLearning();
 window.__examPrepReady=true;
 
 </script><dialog id="installHelpDialog" aria-labelledby="installHelpTitle"><h2 id="installHelpTitle">安裝到桌面</h2><p id="installHelpText"></p><div class="actions"><button id="installHelpClose" type="button" class="btn">知道了</button></div></dialog><script src="./pwa-install.js"></script></div><script id="brand-launch-code">(function () {
